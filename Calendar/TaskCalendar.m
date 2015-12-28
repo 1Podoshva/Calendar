@@ -149,6 +149,10 @@
 # pragma mark TaskButtonAction
 
 - (void)yearSelect:(TaskDateButton *)yearSelect {
+    if(selectQuickDay) {
+        selectQuickDay.select = NO;
+        selectQuickDay = nil;
+    }
     if (selectYear.tag == yearSelect.tag) {
         selectYear.select = YES;
     } else {
@@ -163,6 +167,10 @@
 }
 
 - (void)monthSelect:(TaskDateButton *)monthSelect {
+    if(selectQuickDay) {
+        selectQuickDay.select = NO;
+        selectQuickDay = nil;
+    }
     if (selectMonth.tag == monthSelect.tag) {
         selectMonth.select = YES;
     } else {
@@ -176,6 +184,10 @@
 }
 
 - (void)daySelect:(TaskDateButton *)daySelect {
+    if(selectQuickDay) {
+        selectQuickDay.select = NO;
+        selectQuickDay = nil;
+    }
     if (selectDay.tag == daySelect.tag) {
         selectDay.select = YES;
     } else {
@@ -209,11 +221,14 @@
     NSDateComponents *currentComponents;
     dateComponents = [self.calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:selectDate];
     currentComponents = [self.calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:self.currentDate];
-    if (dateComponents.day < selectTag) {
-        _selectDateComponents.day = selectTag - dateComponents.day;
-        selectTag = _selectDateComponents.day;
-        selectDate = [self.calendar dateFromComponents:_selectDateComponents];
+    if (!selectQuickDay) {
+        if (dateComponents.day < selectTag) {
+            _selectDateComponents.day = selectTag - dateComponents.day;
+            selectTag = _selectDateComponents.day;
+            selectDate = [self.calendar dateFromComponents:_selectDateComponents];
+        }
     }
+
     NSRange range = [self.calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:selectDate];
     NSUInteger numberOfDaysInMonth = range.length;
     NSInteger currentNumberDays = self.dayStackView.arrangedSubviews.count;
@@ -225,7 +240,10 @@
                 [taskButton setTitle:[NSString stringWithFormat:@"%i", i + 1] forState:UIControlStateNormal];
                 taskButton.tag = i + 1;
                 if (selectTag == taskButton.tag) {
-                    [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    if (!selectQuickDay) {
+                        [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    }
+
                 }
             } else {
                 TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:CGRectMake(0,0,30,30) withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textColor];
@@ -235,7 +253,9 @@
                 dayButton.type = TaskButtonType_Day;
                 [dayButton addTarget:self action:@selector(daySelect:) forControlEvents:UIControlEventTouchUpInside];
                 if (selectTag == dayButton.tag) {
-                    [dayButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    if (!selectQuickDay) {
+                        [dayButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    }
                 }
                 [self.dayStackView addArrangedSubview:dayButton];
 
@@ -257,12 +277,16 @@
                 [taskButton setTag:currentComponents.day + i];
                 [taskButton setTitle:[NSString stringWithFormat:@"%i", currentComponents.day + i] forState:UIControlStateNormal];
                 if (taskButton.tag == selectTag) {
-                    [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    if (!selectQuickDay) {
+                        [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    }
                 }
         }
         if (selectTag < currentComponents.day) {
             TaskDateButton *taskButton =  self.dayStackView.arrangedSubviews[0];
-            [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+            if (!selectQuickDay) {
+                [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+            }
         }
 
     } else {
@@ -276,7 +300,10 @@
                 taskButton.tag = i + 1;
                 if (taskButton.tag == selectTag) {
                     [taskButton setTitle:[NSString stringWithFormat:@"%i", i + 1] forState:UIControlStateNormal];
-                    [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    if (!selectQuickDay) {
+                        [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
+                    }
+
                 }
             }
         }
@@ -303,18 +330,17 @@
         }
     }
 
-
-
+    [self updateNumberDays];
     for (TaskDateButton *dayButton in self.dayStackView.arrangedSubviews) {
         if (dayButton.tag == _selectDateComponents.day) {
             selectDay.select = NO;
             selectDay = nil;
             selectDay = dayButton;
             selectDay.select = YES;
+        } else {
+
         }
     }
-
-    [self updateNumberDays];
 }
 
 - (void)updateScrollViewPosition {
