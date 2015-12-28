@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B45146481C22BD7D00EF0B10 /* TaskDateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B45146471C22BD7D00EF0B10 /* TaskDateButton.m */; };
+		B45C9BE71C2400F70001A43B /* TaskCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B45C9BE61C2400F70001A43B /* TaskCalendarCollectionView.m */; };
+		B45C9BF01C2409A70001A43B /* TaskCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B45C9BEE1C2409A70001A43B /* TaskCollectionViewCell.m */; };
+		B45C9BF11C2409A70001A43B /* TaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45C9BEF1C2409A70001A43B /* TaskCollectionViewCell.xib */; };
+		B45C9BF41C242A190001A43B /* TaskCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B45C9BF31C242A190001A43B /* TaskCollectionViewLayout.m */; };
 		B4DAAE671C219549005F8DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DAAE661C219549005F8DA1 /* main.m */; };
 		B4DAAE6A1C219549005F8DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DAAE691C219549005F8DA1 /* AppDelegate.m */; };
 		B4DAAE6D1C219549005F8DA1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DAAE6C1C219549005F8DA1 /* ViewController.m */; };
@@ -14,9 +19,23 @@
 		B4DAAE731C219549005F8DA1 /* Calendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4DAAE711C219549005F8DA1 /* Calendar.xcdatamodeld */; };
 		B4DAAE751C219549005F8DA1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4DAAE741C219549005F8DA1 /* Assets.xcassets */; };
 		B4DAAE781C219549005F8DA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4DAAE761C219549005F8DA1 /* LaunchScreen.storyboard */; };
+		B4DAAE811C219586005F8DA1 /* TaskCalendar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4DAAE801C219586005F8DA1 /* TaskCalendar.xib */; };
+		B4DAAE841C21961C005F8DA1 /* TaskCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DAAE831C21961C005F8DA1 /* TaskCalendar.m */; };
+		CDE3D0A9D719BCED1101C57C /* TaskDateQuickSnapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE3DB472BA8E8A2D0BE1DB2 /* TaskDateQuickSnapManager.m */; };
+		CDE3D89C40A97DDC29706AB4 /* TaskDateComponentsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE3DD121A3CA66D590BBBCC /* TaskDateComponentsContext.m */; };
+		CDE3DD28EE12E5BF6901699F /* TaskQuickDateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE3DE5288F0CED5FF05CAF5 /* TaskQuickDateButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B45146461C22BD7D00EF0B10 /* TaskDateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDateButton.h; path = TaskDateButton/TaskDateButton.h; sourceTree = "<group>"; };
+		B45146471C22BD7D00EF0B10 /* TaskDateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDateButton.m; path = TaskDateButton/TaskDateButton.m; sourceTree = "<group>"; };
+		B45C9BE51C2400F70001A43B /* TaskCalendarCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskCalendarCollectionView.h; path = TaskCalendarCollectionView/TaskCalendarCollectionView.h; sourceTree = "<group>"; };
+		B45C9BE61C2400F70001A43B /* TaskCalendarCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskCalendarCollectionView.m; path = TaskCalendarCollectionView/TaskCalendarCollectionView.m; sourceTree = "<group>"; };
+		B45C9BED1C2409A70001A43B /* TaskCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskCollectionViewCell.h; path = TaskCollectionViewCell/TaskCollectionViewCell.h; sourceTree = "<group>"; };
+		B45C9BEE1C2409A70001A43B /* TaskCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskCollectionViewCell.m; path = TaskCollectionViewCell/TaskCollectionViewCell.m; sourceTree = "<group>"; };
+		B45C9BEF1C2409A70001A43B /* TaskCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TaskCollectionViewCell.xib; path = TaskCollectionViewCell/TaskCollectionViewCell.xib; sourceTree = "<group>"; };
+		B45C9BF21C242A190001A43B /* TaskCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskCollectionViewLayout.h; path = TaskCollectionViewLayout/TaskCollectionViewLayout.h; sourceTree = "<group>"; };
+		B45C9BF31C242A190001A43B /* TaskCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskCollectionViewLayout.m; path = TaskCollectionViewLayout/TaskCollectionViewLayout.m; sourceTree = "<group>"; };
 		B4DAAE621C219549005F8DA1 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DAAE661C219549005F8DA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4DAAE681C219549005F8DA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -28,6 +47,15 @@
 		B4DAAE741C219549005F8DA1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4DAAE771C219549005F8DA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4DAAE791C219549005F8DA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4DAAE801C219586005F8DA1 /* TaskCalendar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskCalendar.xib; sourceTree = "<group>"; };
+		B4DAAE821C21961C005F8DA1 /* TaskCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskCalendar.h; sourceTree = "<group>"; };
+		B4DAAE831C21961C005F8DA1 /* TaskCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskCalendar.m; sourceTree = "<group>"; };
+		CDE3D958249B4452DAE180FD /* TaskDateComponentsContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDateComponentsContext.h; path = TaskDateQuickSnapManager/TaskDateComponentsContext.h; sourceTree = "<group>"; };
+		CDE3D9A9FBD730E91C6E4892 /* TaskDateQuickSnapManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDateQuickSnapManager.h; path = TaskDateQuickSnapManager/TaskDateQuickSnapManager.h; sourceTree = "<group>"; };
+		CDE3D9D3E32BEBEEF5BB545A /* TaskQuickDateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskQuickDateButton.h; path = TaskDateButton/TaskQuickDateButton.h; sourceTree = "<group>"; };
+		CDE3DB472BA8E8A2D0BE1DB2 /* TaskDateQuickSnapManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDateQuickSnapManager.m; path = TaskDateQuickSnapManager/TaskDateQuickSnapManager.m; sourceTree = "<group>"; };
+		CDE3DD121A3CA66D590BBBCC /* TaskDateComponentsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDateComponentsContext.m; path = TaskDateQuickSnapManager/TaskDateComponentsContext.m; sourceTree = "<group>"; };
+		CDE3DE5288F0CED5FF05CAF5 /* TaskQuickDateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskQuickDateButton.m; path = TaskDateButton/TaskQuickDateButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +69,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B45146451C22BD3D00EF0B10 /* TaskDateButton */ = {
+			isa = PBXGroup;
+			children = (
+				B45146461C22BD7D00EF0B10 /* TaskDateButton.h */,
+				B45146471C22BD7D00EF0B10 /* TaskDateButton.m */,
+				CDE3DE5288F0CED5FF05CAF5 /* TaskQuickDateButton.m */,
+				CDE3D9D3E32BEBEEF5BB545A /* TaskQuickDateButton.h */,
+			);
+			name = TaskDateButton;
+			sourceTree = "<group>";
+		};
+		B45C9BE41C2400BF0001A43B /* TaskCalendarCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				B45C9BE51C2400F70001A43B /* TaskCalendarCollectionView.h */,
+				B45C9BE61C2400F70001A43B /* TaskCalendarCollectionView.m */,
+			);
+			name = TaskCalendarCollectionView;
+			sourceTree = "<group>";
+		};
+		B45C9BEC1C2409850001A43B /* TaskCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B45C9BED1C2409A70001A43B /* TaskCollectionViewCell.h */,
+				B45C9BEE1C2409A70001A43B /* TaskCollectionViewCell.m */,
+				B45C9BEF1C2409A70001A43B /* TaskCollectionViewCell.xib */,
+			);
+			name = TaskCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		B45C9BF51C242A230001A43B /* TaskCollectionViewLayout */ = {
+			isa = PBXGroup;
+			children = (
+				B45C9BF21C242A190001A43B /* TaskCollectionViewLayout.h */,
+				B45C9BF31C242A190001A43B /* TaskCollectionViewLayout.m */,
+			);
+			name = TaskCollectionViewLayout;
+			sourceTree = "<group>";
+		};
 		B4DAAE591C219549005F8DA1 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +127,7 @@
 		B4DAAE641C219549005F8DA1 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				B4DAAE7F1C21954F005F8DA1 /* Calendar */,
 				B4DAAE681C219549005F8DA1 /* AppDelegate.h */,
 				B4DAAE691C219549005F8DA1 /* AppDelegate.m */,
 				B4DAAE6B1C219549005F8DA1 /* ViewController.h */,
@@ -80,6 +148,32 @@
 				B4DAAE661C219549005F8DA1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4DAAE7F1C21954F005F8DA1 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				B45C9BF51C242A230001A43B /* TaskCollectionViewLayout */,
+				B45C9BEC1C2409850001A43B /* TaskCollectionViewCell */,
+				B45C9BE41C2400BF0001A43B /* TaskCalendarCollectionView */,
+				B45146451C22BD3D00EF0B10 /* TaskDateButton */,
+				B4DAAE801C219586005F8DA1 /* TaskCalendar.xib */,
+				B4DAAE821C21961C005F8DA1 /* TaskCalendar.h */,
+				B4DAAE831C21961C005F8DA1 /* TaskCalendar.m */,
+				CDE3D77DAD41968B76FA013C /* TaskDateQuickSnapManager */,
+			);
+			name = Calendar;
+			sourceTree = "<group>";
+		};
+		CDE3D77DAD41968B76FA013C /* TaskDateQuickSnapManager */ = {
+			isa = PBXGroup;
+			children = (
+				CDE3DB472BA8E8A2D0BE1DB2 /* TaskDateQuickSnapManager.m */,
+				CDE3D9A9FBD730E91C6E4892 /* TaskDateQuickSnapManager.h */,
+				CDE3DD121A3CA66D590BBBCC /* TaskDateComponentsContext.m */,
+				CDE3D958249B4452DAE180FD /* TaskDateComponentsContext.h */,
+			);
+			name = TaskDateQuickSnapManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4DAAE781C219549005F8DA1 /* LaunchScreen.storyboard in Resources */,
+				B45C9BF11C2409A70001A43B /* TaskCollectionViewCell.xib in Resources */,
 				B4DAAE751C219549005F8DA1 /* Assets.xcassets in Resources */,
+				B4DAAE811C219586005F8DA1 /* TaskCalendar.xib in Resources */,
 				B4DAAE701C219549005F8DA1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,10 +249,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4DAAE841C21961C005F8DA1 /* TaskCalendar.m in Sources */,
+				B45C9BF41C242A190001A43B /* TaskCollectionViewLayout.m in Sources */,
+				B45C9BE71C2400F70001A43B /* TaskCalendarCollectionView.m in Sources */,
+				B45C9BF01C2409A70001A43B /* TaskCollectionViewCell.m in Sources */,
 				B4DAAE6D1C219549005F8DA1 /* ViewController.m in Sources */,
+				B45146481C22BD7D00EF0B10 /* TaskDateButton.m in Sources */,
 				B4DAAE6A1C219549005F8DA1 /* AppDelegate.m in Sources */,
 				B4DAAE671C219549005F8DA1 /* main.m in Sources */,
 				B4DAAE731C219549005F8DA1 /* Calendar.xcdatamodeld in Sources */,
+				CDE3D0A9D719BCED1101C57C /* TaskDateQuickSnapManager.m in Sources */,
+				CDE3DD28EE12E5BF6901699F /* TaskQuickDateButton.m in Sources */,
+				CDE3D89C40A97DDC29706AB4 /* TaskDateComponentsContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +409,7 @@
 				B4DAAE7E1C219549005F8DA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

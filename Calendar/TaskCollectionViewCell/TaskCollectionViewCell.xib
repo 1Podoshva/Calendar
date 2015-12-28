@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="TaskCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="461" height="137"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="461" height="137"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m7V-9W-hp8" customClass="TaskQuickDateButton">
+                        <rect key="frame" x="0.0" y="0.0" width="461" height="137"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="m7V-9W-hp8" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Kd9-gD-h8p"/>
+                <constraint firstItem="m7V-9W-hp8" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="P0w-ea-T6i"/>
+                <constraint firstItem="m7V-9W-hp8" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="URQ-gS-pfg"/>
+                <constraint firstItem="m7V-9W-hp8" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="iDA-ca-uz1"/>
+            </constraints>
+            <size key="customSize" width="461" height="137"/>
+            <connections>
+                <outlet property="quickDateButton" destination="m7V-9W-hp8" id="PBn-Cb-Prk"/>
+            </connections>
+            <point key="canvasLocation" x="1209.5" y="367.5"/>
+        </collectionViewCell>
+    </objects>
+</document>
