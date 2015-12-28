@@ -141,7 +141,7 @@
    // self.monthScrollView.contentSize = CGSizeMake(self.monthScrollView.frame.size.width, self.monthScrollView.frame.size.height);
     //self.yearScrollView.contentSize = CGSizeMake(self.yearStackView.frame.size.width, self.yearScrollView.frame.size.height);
     NSDate *date = [[TaskDateQuickSnapManager instance] findFirstWeekendWithCalendar:self.calendar fromDate:self.currentDate];
-    NSLog(@"%@", date);
+    NSLog(@"www%@", date);
 }
 
 
@@ -268,6 +268,10 @@
             item++;
             if (self.dayStackView.arrangedSubviews.count - 1 != numberOfDaysInMonth - currentComponents.day) {
                 [self.dayStackView removeArrangedSubview:taskButton];
+                /*
+                self.dayStackView.frame = CGRectMake(self.dayStackView.frame.origin.x, self.dayStackView.frame.origin.y, self.dayStackView.frame.size.width - taskButton.frame.size.width - self.dayStackView.spacing, self.dayStackView.frame.size.height);
+                self.dayScrollView.contentSize = CGSizeMake(self.dayStackView.frame.size.width, self.dayScrollView.frame.size.height);
+                 */
             } else {
                 break;
             }
@@ -294,8 +298,12 @@
             TaskDateButton *taskButton =  self.dayStackView.arrangedSubviews[i];
             if (i >= numberOfDaysInMonth){
                 [self.dayStackView removeArrangedSubview:taskButton];
+                /*
+                self.dayStackView.frame = CGRectMake(self.dayStackView.frame.origin.x, self.dayStackView.frame.origin.y, self.dayStackView.frame.size.width - taskButton.frame.size.width - self.dayStackView.spacing, self.dayStackView.frame.size.height);
+                self.dayScrollView.contentSize = CGSizeMake(self.dayStackView.frame.size.width, self.dayScrollView.frame.size.height);
+                 */
                 taskButton = nil;
-                NSLog(@"%@", taskButton.titleLabel.text);
+                NSLog(@"dd%@", taskButton.titleLabel.text);
             } else if (taskButton) {
                 taskButton.tag = i + 1;
                 if (taskButton.tag == selectTag) {
@@ -307,7 +315,11 @@
                 }
             }
         }
+
     }
+    [self.dayStackView layoutIfNeeded];
+    NSLog(@"TaskStackViewFrame: %f" , self.dayStackView.frame.size.width);
+    NSLog(@"TaskScrollViewFrame: %f" , self.dayScrollView.contentSize.width);
 
 }
 
@@ -341,11 +353,11 @@
 
         }
     }
+
+    [self updateScrollViewPosition];
 }
 
 - (void)updateScrollViewPosition {
-
-
     CGPoint dayButtonPosition = selectDay.frame.origin;
     CGPoint contentOffset = _dayScrollView.contentOffset;
     if (dayButtonPosition.x > contentOffset.x + _dayScrollView.frame.size.width) {

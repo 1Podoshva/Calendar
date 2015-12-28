@@ -16,6 +16,7 @@
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1se-8a-imF">
                             <rect key="frame" x="0.0" y="1" width="45" height="45"/>
+                            <color key="backgroundColor" red="0.05859375" green="0.42758620689999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </stackView>
                     </subviews>
                     <constraints>
