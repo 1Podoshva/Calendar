@@ -303,7 +303,7 @@
         }
     }
 
-    [self updateNumberDays];
+
 
     for (TaskDateButton *dayButton in self.dayStackView.arrangedSubviews) {
         if (dayButton.tag == _selectDateComponents.day) {
@@ -314,7 +314,7 @@
         }
     }
 
-
+    [self updateNumberDays];
 }
 
 - (void)updateScrollViewPosition {
