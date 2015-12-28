@@ -161,7 +161,7 @@
         [_selectDateComponents setYear:yearSelect.tag];
     }
     [self updateNumberDays];
-    [self updateScrollViewPosition];
+    [self updateDayScrollViewPosition];
     //NSLog(@"%@", _selectDateComponents);
     [view setText:[NSString stringWithFormat:@"day: %i, month: %i, year: %i", _selectDateComponents.day, _selectDateComponents.month, _selectDateComponents.year]];
 }
@@ -179,7 +179,7 @@
         [_selectDateComponents setMonth:monthSelect.tag];
     }
     [self updateNumberDays];
-    [self updateScrollViewPosition];
+    [self updateDayScrollViewPosition];
     [view setText:[NSString stringWithFormat:@"day: %i, month: %i, year: %i", _selectDateComponents.day, _selectDateComponents.month, _selectDateComponents.year]];
 }
 
@@ -318,6 +318,8 @@
 
     }
     [self.dayStackView layoutIfNeeded];
+    [self.dayScrollView layoutIfNeeded];
+
     NSLog(@"TaskStackViewFrame: %f" , self.dayStackView.frame.size.width);
     NSLog(@"TaskScrollViewFrame: %f" , self.dayScrollView.contentSize.width);
 
@@ -341,7 +343,7 @@
             selectMonth.select = YES;
         }
     }
-
+    [self updateMonthScrollViewPosition];
     [self updateNumberDays];
     for (TaskDateButton *dayButton in self.dayStackView.arrangedSubviews) {
         if (dayButton.tag == _selectDateComponents.day) {
@@ -354,21 +356,51 @@
         }
     }
 
-    [self updateScrollViewPosition];
+    [self updateDayScrollViewPosition];
 }
 
-- (void)updateScrollViewPosition {
+- (void)updateDayScrollViewPosition {
     CGPoint dayButtonPosition = selectDay.frame.origin;
     CGPoint contentOffset = _dayScrollView.contentOffset;
+    CGFloat countOffset = (self.dayStackView.frame.size.width / self.dayScrollView.frame.size.width);
+    CGFloat oneWidth = self.dayStackView.frame.size.width / countOffset;
+    NSInteger part = 0;
+    CGFloat positionX = oneWidth;
+    do {
+        positionX = positionX + oneWidth;
+        part++;
+    } while (positionX < dayButtonPosition.x);
+    CGFloat x = 0;
+    if (part == 1) {
+        x = 0;
+    } else {
+        x = oneWidth * part -  self.dayScrollView.frame.size.width / 2;
+    }
+    contentOffset = CGPointMake(x, contentOffset.y);
+    [self.dayScrollView setContentOffset:contentOffset animated:YES];
+
+
+    /*
     if (dayButtonPosition.x > contentOffset.x + _dayScrollView.frame.size.width) {
         contentOffset = CGPointMake(dayButtonPosition.x, _dayScrollView.contentOffset.y);
     }
     else if (dayButtonPosition.x < contentOffset.x) {
         contentOffset = CGPointMake(dayButtonPosition.x,_dayScrollView.contentOffset.y);
     }
-    [self.dayScrollView setContentOffset:contentOffset animated:YES];
+     */
 
+}
 
+- (void)updateMonthScrollViewPosition {
+    CGPoint monthButtonPosition = selectMonth.frame.origin;
+    CGPoint contentOffset = _monthScrollView.contentOffset;
+    if (monthButtonPosition.x  >= self.monthStackView.frame.size.width / 2) {
+        contentOffset = CGPointMake(self.monthStackView.frame.size.width / 2, _monthScrollView.contentOffset.y);
+    } else {
+        contentOffset = CGPointMake(0, _monthScrollView.contentOffset.y);
+    }
+
+    [self.monthScrollView setContentOffset:contentOffset animated:YES];
 
 }
 
