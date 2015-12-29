@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B411B59A1C32C7F300B675B1 /* TaskDatePickerScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B411B5991C32C7F300B675B1 /* TaskDatePickerScrollView.m */; };
 		B45146481C22BD7D00EF0B10 /* TaskDateButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B45146471C22BD7D00EF0B10 /* TaskDateButton.m */; };
 		B45C9BE71C2400F70001A43B /* TaskCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B45C9BE61C2400F70001A43B /* TaskCalendarCollectionView.m */; };
 		B45C9BF01C2409A70001A43B /* TaskCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B45C9BEE1C2409A70001A43B /* TaskCollectionViewCell.m */; };
@@ -28,8 +27,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B411B5981C32C7F300B675B1 /* TaskDatePickerScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDatePickerScrollView.h; path = TaskDatePickerScrollView/TaskDatePickerScrollView.h; sourceTree = "<group>"; };
-		B411B5991C32C7F300B675B1 /* TaskDatePickerScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDatePickerScrollView.m; path = TaskDatePickerScrollView/TaskDatePickerScrollView.m; sourceTree = "<group>"; };
 		B45146461C22BD7D00EF0B10 /* TaskDateButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskDateButton.h; path = TaskDateButton/TaskDateButton.h; sourceTree = "<group>"; };
 		B45146471C22BD7D00EF0B10 /* TaskDateButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskDateButton.m; path = TaskDateButton/TaskDateButton.m; sourceTree = "<group>"; };
 		B45C9BE51C2400F70001A43B /* TaskCalendarCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskCalendarCollectionView.h; path = TaskCalendarCollectionView/TaskCalendarCollectionView.h; sourceTree = "<group>"; };
@@ -72,15 +69,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B411B5971C32C79900B675B1 /* TaskDatePickerScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				B411B5981C32C7F300B675B1 /* TaskDatePickerScrollView.h */,
-				B411B5991C32C7F300B675B1 /* TaskDatePickerScrollView.m */,
-			);
-			name = TaskDatePickerScrollView;
-			sourceTree = "<group>";
-		};
 		B45146451C22BD3D00EF0B10 /* TaskDateButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +153,6 @@
 		B4DAAE7F1C21954F005F8DA1 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				B411B5971C32C79900B675B1 /* TaskDatePickerScrollView */,
 				B45C9BF51C242A230001A43B /* TaskCollectionViewLayout */,
 				B45C9BEC1C2409850001A43B /* TaskCollectionViewCell */,
 				B45C9BE41C2400BF0001A43B /* TaskCalendarCollectionView */,
@@ -263,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4DAAE841C21961C005F8DA1 /* TaskCalendar.m in Sources */,
-				B411B59A1C32C7F300B675B1 /* TaskDatePickerScrollView.m in Sources */,
 				B45C9BF41C242A190001A43B /* TaskCollectionViewLayout.m in Sources */,
 				B45C9BE71C2400F70001A43B /* TaskCalendarCollectionView.m in Sources */,
 				B45C9BF01C2409A70001A43B /* TaskCollectionViewCell.m in Sources */,
@@ -336,7 +322,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -374,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -387,11 +373,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Calendar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SolbegSoft.Calendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -400,11 +384,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Calendar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = SolbegSoft.Calendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

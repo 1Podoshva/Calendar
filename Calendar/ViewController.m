@@ -25,10 +25,6 @@
     calendar.textYearColor = [UIColor colorWithRed:51.0/255.0  green:48.0/255.0  blue:55.0/255.0  alpha:1];
     calendar.selectFastDaysColor = [UIColor colorWithRed:170.0/255.0  green:188.0/255.0  blue:98.0/255.0  alpha:1];
 
-    UILabel *view = [[UILabel alloc] initWithFrame:CGRectMake(50, 50 , 300, 300)];
-    [view setText:@"sdfsdfsdfsdf"];
-    [self.view addSubview:view];
-    
     [self.view addSubview:calendar];
     
 }

@@ -11,16 +11,51 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfg-tC-NJ1">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfg-tC-NJ1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
-                </scrollView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t81-lu-pRh" customClass="TaskDatePickerScrollView">
-                    <rect key="frame" x="0.0" y="100" width="320" height="55"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" distribution="equalSpacing" alignment="center" spacing="8" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1se-8a-imF">
+                            <rect key="frame" x="0.0" y="1" width="45" height="45"/>
+                            <color key="backgroundColor" red="0.05859375" green="0.42758620689999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </stackView>
+                    </subviews>
                     <constraints>
-                        <constraint firstAttribute="height" constant="55" id="zKn-rV-wMP"/>
+                        <constraint firstItem="1se-8a-imF" firstAttribute="leading" secondItem="nfg-tC-NJ1" secondAttribute="leading" id="DSr-0y-8fG"/>
+                        <constraint firstItem="1se-8a-imF" firstAttribute="centerY" secondItem="nfg-tC-NJ1" secondAttribute="centerY" id="R95-Rc-8SH"/>
+                        <constraint firstAttribute="trailing" secondItem="1se-8a-imF" secondAttribute="trailing" id="gjc-nu-9NO"/>
+                        <constraint firstItem="1se-8a-imF" firstAttribute="height" secondItem="nfg-tC-NJ1" secondAttribute="height" id="iLM-37-Vtk"/>
                     </constraints>
                 </scrollView>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-wc-V3N" customClass="TaskCalendarCollectionView">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-bD-AiH">
+                    <rect key="frame" x="0.0" y="45" width="320" height="55"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0RP-82-50m">
+                            <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="0RP-82-50m" secondAttribute="bottom" id="5YI-b3-Y5d"/>
+                        <constraint firstAttribute="trailing" secondItem="0RP-82-50m" secondAttribute="trailing" id="NKL-M1-RcB"/>
+                        <constraint firstItem="0RP-82-50m" firstAttribute="top" secondItem="CNl-bD-AiH" secondAttribute="top" id="Xo2-4L-OuN"/>
+                        <constraint firstItem="0RP-82-50m" firstAttribute="leading" secondItem="CNl-bD-AiH" secondAttribute="leading" id="hTB-rf-eJt"/>
+                        <constraint firstItem="0RP-82-50m" firstAttribute="height" secondItem="CNl-bD-AiH" secondAttribute="height" id="q4S-F6-6mL"/>
+                    </constraints>
+                </scrollView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t81-lu-pRh">
+                    <rect key="frame" x="0.0" y="100" width="320" height="55"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yKS-T8-imj">
+                            <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="yKS-T8-imj" firstAttribute="height" secondItem="t81-lu-pRh" secondAttribute="height" id="3mh-Sq-IWG"/>
+                        <constraint firstAttribute="trailing" secondItem="yKS-T8-imj" secondAttribute="trailing" id="WXD-ce-mrG"/>
+                        <constraint firstItem="yKS-T8-imj" firstAttribute="leading" secondItem="t81-lu-pRh" secondAttribute="leading" id="ZD0-4G-KLJ"/>
+                        <constraint firstItem="yKS-T8-imj" firstAttribute="centerY" secondItem="t81-lu-pRh" secondAttribute="centerY" id="vox-IV-430"/>
+                    </constraints>
+                </scrollView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-wc-V3N" customClass="TaskCalendarCollectionView">
                     <rect key="frame" x="0.0" y="156" width="320" height="128"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tkt-aC-cSu">
@@ -34,9 +69,6 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="UCc-cw-0EJ"/>
                     </connections>
                 </collectionView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-bD-AiH">
-                    <rect key="frame" x="0.0" y="45" width="320" height="55"/>
-                </scrollView>
             </subviews>
             <color key="backgroundColor" red="0.1803921568627451" green="0.1803921568627451" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
@@ -58,12 +90,15 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="dayScrollView" destination="nfg-tC-NJ1" id="Zxt-ew-hMW"/>
+                <outlet property="dayScrollView" destination="nfg-tC-NJ1" id="BRG-kO-bpt"/>
+                <outlet property="dayStackView" destination="1se-8a-imF" id="XQK-Vu-wWn"/>
                 <outlet property="fastDaysCollectionView" destination="jfm-wc-V3N" id="WcP-dJ-j6I"/>
-                <outlet property="monthScrollView" destination="CNl-bD-AiH" id="77Z-42-495"/>
-                <outlet property="yearScrollView" destination="t81-lu-pRh" id="K2v-F8-ga7"/>
+                <outlet property="monthScrollView" destination="CNl-bD-AiH" id="atO-4c-GVx"/>
+                <outlet property="monthStackView" destination="0RP-82-50m" id="Y1U-LR-Dg7"/>
+                <outlet property="yearScrollView" destination="t81-lu-pRh" id="s20-6t-d6w"/>
+                <outlet property="yearStackView" destination="yKS-T8-imj" id="nj4-LL-sTS"/>
             </connections>
-            <point key="canvasLocation" x="411" y="415"/>
+            <point key="canvasLocation" x="398" y="343"/>
         </view>
     </objects>
 </document>
