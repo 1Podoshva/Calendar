@@ -116,9 +116,10 @@
         NSInteger afterDay = 0;
         NSDateComponents *components;
         NSDateComponents *weekendComponents;
+        NSDateComponents *currentComponents = [calendar components:DATE_COMPONENTS_UNIT fromDate:date];
         do {
             components = [calendar components:DATE_COMPONENTS_UNIT fromDate:weekendDate];
-            components = [self dateComponentsWithCalendar:calendar fromCurrentComponents:components afterDay:afterDay];
+            components = [self dateComponentsWithCalendar:calendar fromCurrentComponents:currentComponents afterDay:afterDay];
             weekendDate = [calendar dateFromComponents:components];
             afterDay ++;
         } while (![calendar isDateInWeekend:weekendDate]);
