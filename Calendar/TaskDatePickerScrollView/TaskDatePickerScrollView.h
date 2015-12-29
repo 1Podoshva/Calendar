@@ -10,7 +10,6 @@
 
 @interface TaskDatePickerScrollView : UIScrollView
 
-@property (nonatomic, assign) NSInteger countPages;
 @property (nonatomic, assign) CGFloat spacing;
 
 @end

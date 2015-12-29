@@ -11,10 +11,10 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfg-tC-NJ1">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfg-tC-NJ1" customClass="TaskDatePickerScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                 </scrollView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t81-lu-pRh" customClass="TaskDatePickerScrollView">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t81-lu-pRh" customClass="TaskDatePickerScrollView">
                     <rect key="frame" x="0.0" y="100" width="320" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="zKn-rV-wMP"/>
@@ -34,7 +34,7 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="UCc-cw-0EJ"/>
                     </connections>
                 </collectionView>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-bD-AiH">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNl-bD-AiH" customClass="TaskDatePickerScrollView">
                     <rect key="frame" x="0.0" y="45" width="320" height="55"/>
                 </scrollView>
             </subviews>
