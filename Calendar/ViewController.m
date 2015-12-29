@@ -25,7 +25,11 @@
     calendar.textColor = [UIColor colorWithRed:70.0/255.0  green:70.0/255.0  blue:79.0/255.0  alpha:1];
     calendar.textYearColor = [UIColor colorWithRed:51.0/255.0  green:48.0/255.0  blue:55.0/255.0  alpha:1];
     calendar.selectFastDaysColor = [UIColor colorWithRed:170.0/255.0  green:188.0/255.0  blue:98.0/255.0  alpha:1];
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> parent of 23dd402... new scrolling View
     [self.view addSubview:calendar];
 }
 
