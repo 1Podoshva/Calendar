@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "TaskCalendarCollectionView.h"
+#import "TaskDatePickerScrollView.h"
 @interface TaskCalendar : UIView <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-@property (weak, nonatomic) IBOutlet UIStackView *dayStackView;
-@property (weak, nonatomic) IBOutlet UIScrollView *dayScrollView;
-@property (weak, nonatomic) IBOutlet UIStackView *monthStackView;
-@property (weak, nonatomic) IBOutlet UIScrollView *monthScrollView;
-@property (weak, nonatomic) IBOutlet UIStackView *yearStackView;
-@property (weak, nonatomic) IBOutlet UIScrollView *yearScrollView;
+@property (weak, nonatomic) IBOutlet TaskDatePickerScrollView *dayScrollView;
+@property (weak, nonatomic) IBOutlet TaskDatePickerScrollView *monthScrollView;
+@property (weak, nonatomic) IBOutlet TaskDatePickerScrollView *yearScrollView;
 @property (weak, nonatomic) IBOutlet TaskCalendarCollectionView *fastDaysCollectionView;
 
 
