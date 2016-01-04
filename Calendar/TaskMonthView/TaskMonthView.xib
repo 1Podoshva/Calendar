@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="ME4-tk-eNY" customClass="TaskMonthView">
+            <rect key="frame" x="0.0" y="0.0" width="120" height="82"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="eoO-vi-3NU" customClass="TaskDateButton">
+                    <rect key="frame" x="35" y="0.0" width="85" height="82"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                    <state key="normal" title="Февр.">
+                        <color key="titleColor" red="0.05859375" green="0.42758620689999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxp-5w-prJ">
+                    <rect key="frame" x="0.0" y="25" width="33" height="57"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="33" id="C5c-hl-Nz2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="eoO-vi-3NU" secondAttribute="trailing" id="6EW-cb-HsD"/>
+                <constraint firstItem="eoO-vi-3NU" firstAttribute="top" secondItem="ME4-tk-eNY" secondAttribute="top" id="99C-qj-7bh"/>
+                <constraint firstAttribute="bottom" secondItem="eoO-vi-3NU" secondAttribute="bottom" id="A59-Dm-M7M"/>
+                <constraint firstItem="wxp-5w-prJ" firstAttribute="leading" secondItem="ME4-tk-eNY" secondAttribute="leading" id="HyG-p9-GJa"/>
+                <constraint firstItem="wxp-5w-prJ" firstAttribute="top" secondItem="ME4-tk-eNY" secondAttribute="topMargin" constant="17" id="W9G-nq-IqU"/>
+                <constraint firstItem="wxp-5w-prJ" firstAttribute="bottom" secondItem="eoO-vi-3NU" secondAttribute="bottom" id="hTL-tQ-ib2"/>
+                <constraint firstItem="eoO-vi-3NU" firstAttribute="leading" secondItem="wxp-5w-prJ" secondAttribute="trailing" constant="2" id="v4p-lg-FRX"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="monthButton" destination="eoO-vi-3NU" id="ZTL-9t-Kcb"/>
+                <outlet property="numberMonthLabel" destination="wxp-5w-prJ" id="pIA-wJ-cuz"/>
+            </connections>
+            <point key="canvasLocation" x="527" y="30"/>
+        </view>
+    </objects>
+</document>
