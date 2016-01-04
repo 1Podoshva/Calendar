@@ -9,8 +9,8 @@
 #import "TaskCalendarCollectionView.h"
 #import "TaskCollectionViewCell.h"
 #import "TaskCollectionViewLayout.h"
-@implementation TaskCalendarCollectionView
-{
+
+@implementation TaskCalendarCollectionView {
     TaskCollectionViewLayout *collectionViewLayout;
 }
 

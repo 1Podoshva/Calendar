@@ -13,13 +13,13 @@ typedef enum {
     TaskButtonType_Month,
     TaskButtonType_Year,
     TaskButtonType_FastDay
-}TaskButtonType;
+} TaskButtonType;
 
 @interface TaskDateButton : UIButton
-@property (nonatomic, strong) UIColor *selectColor;
-@property (nonatomic, strong) UIColor *textColor;
-@property (nonatomic, assign) BOOL select;
-@property (nonatomic, assign) TaskButtonType type;
+@property(nonatomic, strong) UIColor *selectColor;
+@property(nonatomic, strong) UIColor *textColor;
+@property(nonatomic, assign) BOOL select;
+@property(nonatomic, assign) TaskButtonType type;
 
 - (instancetype)initWithFrame:(CGRect)frame withType:(TaskButtonType)type withSelectColor:(UIColor *)color withTextColor:(UIColor *)textColor;
 

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TaskCalendarCollectionView : UICollectionView 
+@interface TaskCalendarCollectionView : UICollectionView
 
 @end

@@ -18,8 +18,7 @@
 }
 */
 
-- (instancetype)initWithCoder:(NSCoder *)coder
-{
+- (instancetype)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];
     if (self) {
         [self addTarget:self action:@selector(selectButton:) forControlEvents:UIControlEventTouchUpInside];

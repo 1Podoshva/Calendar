@@ -5,7 +5,9 @@
 
 #import <Foundation/Foundation.h>
 #import "TaskDateComponentsContext.h"
+
 #define DATE_COMPONENTS_UNIT NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitDay | NSCalendarUnitYear | NSCalendarUnitMonth
+
 @interface TaskDateQuickSnapManager : NSObject
 
 

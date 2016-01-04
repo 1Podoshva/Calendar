@@ -11,7 +11,7 @@
 @implementation TaskCollectionViewCell
 
 - (void)awakeFromNib {
-    
+
 }
 
 

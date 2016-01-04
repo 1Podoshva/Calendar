@@ -25,7 +25,6 @@
 }
 
 
-
 - (NSArray <TaskDateComponentsContext *> *)quickDaysWithCalendar:(NSCalendar *)calendar fromDate:(NSDate *)date {
     if (calendar && date) {
         NSMutableArray *array;
@@ -56,8 +55,6 @@
     NSLog(@"PARAMS IS NULL");
     return nil;
 }
-
-
 
 
 - (NSArray <TaskDateComponentsContext *> *)quickDaysWithCalendar:(NSCalendar *)calendar fromDate:(NSDate *)date afterDay:(NSRange)range {
@@ -121,7 +118,7 @@
             components = [calendar components:DATE_COMPONENTS_UNIT fromDate:weekendDate];
             components = [self dateComponentsWithCalendar:calendar fromCurrentComponents:currentComponents afterDay:afterDay];
             weekendDate = [calendar dateFromComponents:components];
-            afterDay ++;
+            afterDay++;
         } while (![calendar isDateInWeekend:weekendDate]);
         weekendComponents = [[NSDateComponents alloc] init];
         weekendComponents.day = components.day;
@@ -156,7 +153,7 @@
         NSUInteger numberOfDaysInMonth = range.length;
         if (numberOfDaysInMonth == currentComponents.day) {
             NSInteger minutes = currentComponents.hour * 60 + currentComponents.minute;
-            if (minutes > (24 * 60) - (60 * NOT_HOUR_TIME)){
+            if (minutes > (24 * 60) - (60 * NOT_HOUR_TIME)) {
                 return nil;
             }
         }
@@ -171,7 +168,7 @@
     if (date && calendar) {
         NSDate *dateValue;
         NSDateComponents *dateComponents;
-        dateValue  = [self lastDayInMonthWithCalendar:calendar currentDate:date];
+        dateValue = [self lastDayInMonthWithCalendar:calendar currentDate:date];
         dateComponents = [calendar components:DATE_COMPONENTS_UNIT fromDate:dateValue];
         dateComponents.day = dateComponents.day + 1;
         dateValue = [calendar dateFromComponents:dateComponents];
@@ -212,7 +209,7 @@
         }
         weekendComponents.day = weekendComponents.day;
         NSDate *thisWeekDate = [calendar dateFromComponents:weekendComponents];
-        return [calendar components:DATE_COMPONENTS_UNIT  fromDate:thisWeekDate];
+        return [calendar components:DATE_COMPONENTS_UNIT fromDate:thisWeekDate];
     }
     return nil;
 }
@@ -231,7 +228,6 @@
     return nil;
 
 }
-
 
 
 @end

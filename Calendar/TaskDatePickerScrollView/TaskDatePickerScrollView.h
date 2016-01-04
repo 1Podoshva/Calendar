@@ -10,6 +10,6 @@
 
 @interface TaskDatePickerScrollView : UIScrollView
 
-@property (nonatomic, assign) CGFloat spacing;
+@property(nonatomic, assign) CGFloat spacing;
 
 @end

@@ -9,21 +9,26 @@
 #import <UIKit/UIKit.h>
 #import "TaskCalendarCollectionView.h"
 #import "TaskDatePickerScrollView.h"
+
+
+@protocol TaskCalendarDelegate <NSObject>
+- (void)selectDate:(NSDate *)date;
+@end
+
 @interface TaskCalendar : UIView <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-@property (weak, nonatomic) IBOutlet TaskDatePickerScrollView *dayScrollView;
-@property (weak, nonatomic) IBOutlet TaskDatePickerScrollView *monthScrollView;
-@property (weak, nonatomic) IBOutlet TaskDatePickerScrollView *yearScrollView;
-@property (weak, nonatomic) IBOutlet TaskCalendarCollectionView *fastDaysCollectionView;
+@property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *dayScrollView;
+@property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *monthScrollView;
+@property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *yearScrollView;
+@property(weak, nonatomic) IBOutlet TaskCalendarCollectionView *fastDaysCollectionView;
 
 
-@property (nonatomic, strong) UIColor *selectColor;
-@property (nonatomic, strong) UIColor *textColor;
-@property (nonatomic, strong) UIColor *textYearColor;
-@property (nonatomic, strong) UIColor *selectFastDaysColor; // преопределить setter
-@property (nonatomic, strong) NSCalendar *calendar;
-@property (nonatomic, readonly) NSDate *currentDate;
-@property (nonatomic, readonly) NSDateComponents *selectDateComponents;
-
-
+@property(nonatomic, strong) UIColor *selectColor;
+@property(nonatomic, strong) UIColor *textColor;
+@property(nonatomic, strong) UIColor *textYearColor;
+@property(nonatomic, strong) UIColor *selectQuickDaysColor;
+@property(nonatomic, strong) NSCalendar *calendar;
+@property(nonatomic, readonly) NSDate *currentDate;
+@property(nonatomic, readonly) NSDateComponents *selectDateComponents;
+@property(nonatomic, weak) id <TaskCalendarDelegate> delegate;
 
 @end

@@ -9,8 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TaskCollectionViewLayout : UICollectionViewLayout
-@property (nonatomic, assign) CGSize cellSize;
-
+@property(nonatomic, assign) CGSize cellSize;
 
 
 @end

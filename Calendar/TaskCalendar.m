@@ -13,10 +13,9 @@
 
 #define ADD_WIGHT_SIZE 20
 #define HEIGHT_CELL_SIZE 20
+#define COUNT_DAYS 30
 
-
-@implementation TaskCalendar
-{
+@implementation TaskCalendar {
     NSMutableArray *quickDaysArray;
     NSDateComponents *currentDateComponents;
     TaskDateButton *selectDay;
@@ -55,7 +54,7 @@
 - (void)createButtons {
     NSRange range = [self.calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self.currentDate];
     NSUInteger numberOfDaysInMonth = range.length;
-    for (int i = currentDateComponents.day; i <= numberOfDaysInMonth; i ++) {
+    for (int i = currentDateComponents.day; i <= numberOfDaysInMonth; i++) {
         TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:dayButtonSize withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textColor];
         [dayButton setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
         dayButton.tag = i;
@@ -71,9 +70,9 @@
         [self.dayScrollView addSubview:dayButton];
     }
 
-    for (int i = 0; i < self.calendar.shortMonthSymbols.count; i ++) {
+    for (int i = 0; i < self.calendar.shortMonthSymbols.count; i++) {
         TaskDateButton *monthButton = [[TaskDateButton alloc] initWithFrame:monthButtonSize withType:TaskButtonType_Month withSelectColor:self.selectColor withTextColor:self.textColor];;
-        [monthButton setTitle:[NSString stringWithFormat:@"%@",self.calendar.shortMonthSymbols[i]] forState:UIControlStateNormal];
+        [monthButton setTitle:[NSString stringWithFormat:@"%@", self.calendar.shortMonthSymbols[i]] forState:UIControlStateNormal];
         [monthButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
         monthButton.type = TaskButtonType_Month;
         monthButton.tag = i + 1;
@@ -87,7 +86,7 @@
         [self.monthScrollView addSubview:monthButton];
 
     }
-    for (int i = [currentDateComponents year]; i < [currentDateComponents year] + 50; i ++) {
+    for (int i = [currentDateComponents year]; i < [currentDateComponents year] + 50; i++) {
         TaskDateButton *yearButton = [[TaskDateButton alloc] initWithFrame:yearButtonSize withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textYearColor];;
         [yearButton setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
         [yearButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
@@ -144,17 +143,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     quickDaysArray = [[NSMutableArray alloc] init];
-    monthButtonSize = CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width / 4, self.monthScrollView.frame.size.height);
-    dayButtonSize = CGRectMake(0,0,30,30);
-    yearButtonSize = CGRectMake(0,0,[UIScreen mainScreen].bounds.size.width / 5, 30);
+    monthButtonSize = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width / 4, self.monthScrollView.frame.size.height);
+    dayButtonSize = CGRectMake(0, 0, 30, 30);
+    yearButtonSize = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width / 5, 30);
 
 
-    CGFloat daySpacing = ([UIScreen mainScreen].bounds.size.width / 30) / 2;
+    CGFloat daySpacing = ([UIScreen mainScreen].bounds.size.width / COUNT_DAYS) / 2;
     [self.dayScrollView setSpacing:daySpacing];
 
     [self createButtons];
     [self updateMonthScrollViewPosition];
-    view = [[UILabel alloc] initWithFrame:CGRectMake(0, -300 , 300, 300)];
+    view = [[UILabel alloc] initWithFrame:CGRectMake(0, -300, 300, 300)];
     [self addSubview:view];
 
     NSDate *date = [[TaskDateQuickSnapManager instance] findFirstWeekendWithCalendar:self.calendar fromDate:self.currentDate];
@@ -162,11 +161,10 @@
 }
 
 
-
 # pragma mark TaskButtonAction
 
 - (void)yearSelect:(TaskDateButton *)yearSelect {
-    if(selectQuickDay) {
+    if (selectQuickDay) {
         selectQuickDay.select = NO;
         selectQuickDay = nil;
     }
@@ -179,12 +177,12 @@
     }
     [self updateNumberDays];
     [self updateDayScrollViewPosition];
-    //NSLog(@"%@", _selectDateComponents);
     [view setText:[NSString stringWithFormat:@"day: %i, month: %i, year: %i", _selectDateComponents.day, _selectDateComponents.month, _selectDateComponents.year]];
+    [self selectDate];
 }
 
 - (void)monthSelect:(TaskDateButton *)monthSelect {
-    if(selectQuickDay) {
+    if (selectQuickDay) {
         selectQuickDay.select = NO;
         selectQuickDay = nil;
     }
@@ -198,10 +196,11 @@
     [self updateNumberDays];
     [self updateDayScrollViewPosition];
     [view setText:[NSString stringWithFormat:@"day: %i, month: %i, year: %i", _selectDateComponents.day, _selectDateComponents.month, _selectDateComponents.year]];
+    [self selectDate];
 }
 
 - (void)daySelect:(TaskDateButton *)daySelect {
-    if(selectQuickDay) {
+    if (selectQuickDay) {
         selectQuickDay.select = NO;
         selectQuickDay = nil;
     }
@@ -213,6 +212,7 @@
         [_selectDateComponents setDay:daySelect.tag];
     }
     [view setText:[NSString stringWithFormat:@"day: %i, month: %i, year: %i", _selectDateComponents.day, _selectDateComponents.month, _selectDateComponents.year]];
+    [self selectDate];
 }
 
 - (void)quickDaySelect:(TaskQuickDateButton *)quickDaySelect {
@@ -224,9 +224,18 @@
         selectQuickDay = quickDaySelect;
         _selectDateComponents = [self.calendar components:DATE_COMPONENTS_UNIT fromDate:selectQuickDay.quickDate];
         [self setSelectButtons];
+        [self selectDate];
     }
     [view setText:[NSString stringWithFormat:@"DATE %@", selectQuickDay.quickDate]];
 }
+
+- (void)selectDate {
+    if (self.delegate) {
+        [self.delegate selectDate:[self.calendar dateFromComponents:self.selectDateComponents]];
+    }
+}
+
+
 # pragma mark UpdateDaysButton
 
 - (void)updateNumberDays {
@@ -236,8 +245,8 @@
     NSDate *selectDate = [self.calendar dateFromComponents:_selectDateComponents];
     NSDateComponents *dateComponents;
     NSDateComponents *currentComponents;
-    dateComponents = [self.calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:selectDate];
-    currentComponents = [self.calendar components:NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit fromDate:self.currentDate];
+    dateComponents = [self.calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:selectDate];
+    currentComponents = [self.calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:self.currentDate];
     if (!selectQuickDay) {
         if (dateComponents.day < selectTag) {
             _selectDateComponents.day = selectTag - dateComponents.day;
@@ -246,14 +255,14 @@
         }
     }
 
-    NSRange range = [self.calendar rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:selectDate];
+    NSRange range = [self.calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:selectDate];
     NSUInteger numberOfDaysInMonth = range.length;
     NSInteger currentNumberDays = self.dayScrollView.subviews.count;
 
     if (currentNumberDays < numberOfDaysInMonth && (_selectDateComponents.month != currentComponents.month | _selectDateComponents.year != currentComponents.year)) {
         for (int i = 0; i < numberOfDaysInMonth; ++i) {
             if (i < currentNumberDays) {
-                TaskDateButton *taskButton =  self.dayScrollView.subviews[i];
+                TaskDateButton *taskButton = self.dayScrollView.subviews[i];
                 [taskButton setTitle:[NSString stringWithFormat:@"%i", i + 1] forState:UIControlStateNormal];
                 taskButton.tag = i + 1;
                 if (selectTag == taskButton.tag) {
@@ -263,7 +272,7 @@
 
                 }
             } else {
-                TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:CGRectMake(0,0,30,30) withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textColor];
+                TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30) withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textColor];
                 [dayButton setTitle:[NSString stringWithFormat:@"%i", i + 1] forState:UIControlStateNormal];
                 dayButton.tag = i + 1;
                 [dayButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
@@ -287,18 +296,18 @@
                 break;
             }
         }
-        for (int i = 0; i < self.dayScrollView.subviews.count; i++){
-                TaskDateButton *taskButton =  self.dayScrollView.subviews[i];
-                [taskButton setTag:currentComponents.day + i];
-                [taskButton setTitle:[NSString stringWithFormat:@"%i", currentComponents.day + i] forState:UIControlStateNormal];
-                if (taskButton.tag == selectTag) {
-                    if (!selectQuickDay) {
-                        [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
-                    }
+        for (int i = 0; i < self.dayScrollView.subviews.count; i++) {
+            TaskDateButton *taskButton = self.dayScrollView.subviews[i];
+            [taskButton setTag:currentComponents.day + i];
+            [taskButton setTitle:[NSString stringWithFormat:@"%i", currentComponents.day + i] forState:UIControlStateNormal];
+            if (taskButton.tag == selectTag) {
+                if (!selectQuickDay) {
+                    [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
                 }
+            }
         }
         if (selectTag < currentComponents.day) {
-            TaskDateButton *taskButton =  self.dayScrollView.subviews[0];
+            TaskDateButton *taskButton = self.dayScrollView.subviews[0];
             if (!selectQuickDay) {
                 [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
             }
@@ -306,8 +315,8 @@
 
     } else {
         for (int i = self.dayScrollView.subviews.count - 1; i >= 0; i--) {
-            TaskDateButton *taskButton =  self.dayScrollView.subviews[i];
-            if (i >= numberOfDaysInMonth){
+            TaskDateButton *taskButton = self.dayScrollView.subviews[i];
+            if (i >= numberOfDaysInMonth) {
                 [taskButton removeFromSuperview];
                 taskButton = nil;
                 NSLog(@"dd%@", taskButton.titleLabel.text);
@@ -326,7 +335,7 @@
     }
     [self.dayScrollView layoutIfNeeded];
 
-    NSLog(@"TaskScrollViewFrame: %f" , self.dayScrollView.contentSize.width);
+    NSLog(@"TaskScrollViewFrame: %f", self.dayScrollView.contentSize.width);
 
 }
 
@@ -365,6 +374,7 @@
 }
 
 - (void)updateDayScrollViewPosition {
+    /*
     CGPoint dayButtonPosition = selectDay.frame.origin;
     CGPoint contentOffset = _dayScrollView.contentOffset;
     CGFloat countOffset = (self.dayScrollView.contentSize.width / self.dayScrollView.frame.size.width);
@@ -383,24 +393,29 @@
     }
     contentOffset = CGPointMake(x, contentOffset.y);
     [self.dayScrollView setContentOffset:contentOffset animated:YES];
+    */
 
-
-    /*
-    if (dayButtonPosition.x > contentOffset.x + _dayScrollView.frame.size.width) {
-        contentOffset = CGPointMake(dayButtonPosition.x, _dayScrollView.contentOffset.y);
+    CGPoint dayButtonPosition = selectDay.frame.origin;
+    CGPoint contentOffset = _dayScrollView.contentOffset;
+    NSInteger iterations = (NSInteger) (self.dayScrollView.contentSize.width / self.dayScrollView.frame.size.width);
+    CGFloat widthContSize = 0;
+    CGFloat width = self.monthScrollView.frame.size.width;
+    for (NSInteger i = 0; i < iterations; i++) {
+        if (dayButtonPosition.x >= widthContSize && dayButtonPosition.x <= widthContSize + width) {
+            contentOffset = CGPointMake(widthContSize, _dayScrollView.contentOffset.y);
+            break;
+        } else {
+            widthContSize += width;
+        }
     }
-    else if (dayButtonPosition.x < contentOffset.x) {
-        contentOffset = CGPointMake(dayButtonPosition.x,_dayScrollView.contentOffset.y);
-    }
-     */
-
+    [self.dayScrollView setContentOffset:contentOffset animated:YES];
 }
 
 - (void)updateMonthScrollViewPosition {
     CGPoint monthButtonPosition = selectMonth.frame.origin;
     CGPoint contentOffset = _monthScrollView.contentOffset;
-    if (monthButtonPosition.x  >= self.monthScrollView.contentSize.width / 3) {
-        if (monthButtonPosition.x >= self.monthScrollView.contentSize.width / 3 + self.monthScrollView.contentSize.width / 3){
+    if (monthButtonPosition.x >= self.monthScrollView.contentSize.width / 3) {
+        if (monthButtonPosition.x >= self.monthScrollView.contentSize.width / 3 + self.monthScrollView.contentSize.width / 3) {
             contentOffset = CGPointMake(self.monthScrollView.contentSize.width / 3 + self.monthScrollView.contentSize.width / 3, _monthScrollView.contentOffset.y);
         } else {
             contentOffset = CGPointMake(self.monthScrollView.contentSize.width / 3, _monthScrollView.contentOffset.y);
@@ -415,23 +430,24 @@
 }
 
 # pragma mark Draw
+
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(context, 0.5);
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    CGFloat components[] = {81.0/255.0, 80.0/255.0, 87.0/255.0, 1.0};
+    CGFloat components[] = {81.0 / 255.0, 80.0 / 255.0, 87.0 / 255.0, 1.0};
     CGColorRef color = CGColorCreate(colorspace, components);
     CGContextSetStrokeColorWithColor(context, color);
-    
+
     float boundY = self.dayScrollView.bounds.size.height;
     CGContextMoveToPoint(context, 5, boundY);
     CGContextAddLineToPoint(context, self.dayScrollView.bounds.size.width - 5, boundY);
     CGContextStrokePath(context);
-    
+
     boundY += self.monthScrollView.bounds.size.height;
-    
+
     CGContextMoveToPoint(context, 5, boundY);
     CGContextAddLineToPoint(context, self.monthScrollView.bounds.size.width - 5, boundY);
     CGContextStrokePath(context);
@@ -447,6 +463,7 @@
 }
 
 # pragma mark Setters
+
 - (void)setTextColor:(UIColor *)textColor {
     _textColor = textColor;
     for (TaskDateButton *dayButton in self.dayScrollView.subviews) {
@@ -482,13 +499,8 @@
     }
 }
 
-- (void)setSelectFastDaysColor:(UIColor *)selectFastDaysColor {
-    _selectFastDaysColor = selectFastDaysColor;
-    /*
-    for (TaskDateButton *quickDateButton in quickDaysArray) {
-        quickDateButton.selectColor = selectFastDaysColor;
-    }
-     */
+- (void)setSelectQuickDaysColor:(UIColor *)selectQuickDaysColor {
+    _selectQuickDaysColor = selectQuickDaysColor;
 }
 
 
@@ -507,7 +519,7 @@
     TaskDateComponentsContext *dateComponentsContext = quickDaysArray[indexPath.row];
 
     [cell.quickDateButton setTitle:dateComponentsContext.nameValue forState:UIControlStateNormal];
-    cell.quickDateButton.selectColor = _selectFastDaysColor;
+    cell.quickDateButton.selectColor = _selectQuickDaysColor;
     cell.quickDateButton.textColor = _textColor;
     cell.quickDateButton.type = TaskButtonType_FastDay;
     cell.quickDateButton.tag = indexPath.row;
@@ -516,17 +528,17 @@
 
     /*
     [cell.quickDateButton setTitle:[quickDaysArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-    cell.quickDateButton.selectColor = _selectFastDaysColor;
+    cell.quickDateButton.selectColor = _selectQuickDaysColor;
     cell.quickDateButton.textColor = _textColor;
     cell.quickDateButton.type = TaskButtonType_FastDay;
     cell.quickDateButton.tag = indexPath.row;
     [cell.quickDateButton addTarget:self action:@selector(quickDaySelect:) forControlEvents:UIControlEventTouchUpInside];
      */
-    
+
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     TaskDateComponentsContext *dateComponentsContext;
     CGSize stringBoundingBox;
     dateComponentsContext = quickDaysArray[(NSUInteger) indexPath.row];

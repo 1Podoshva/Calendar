@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TaskQuickDateButton.h"
+
 @interface TaskCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet TaskQuickDateButton *quickDateButton;
+@property(weak, nonatomic) IBOutlet TaskQuickDateButton *quickDateButton;
 
 
 @end

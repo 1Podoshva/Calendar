@@ -7,6 +7,6 @@
 #import "TaskDateButton.h"
 
 @interface TaskQuickDateButton : TaskDateButton
-@property (nonatomic, strong) NSDate *quickDate;
+@property(nonatomic, strong) NSDate *quickDate;
 
 @end

@@ -8,6 +8,6 @@
 
 @interface TaskDateComponentsContext : NSDateComponents
 
-@property (nonatomic, strong) NSString *nameValue;
+@property(nonatomic, strong) NSString *nameValue;
 
 @end
