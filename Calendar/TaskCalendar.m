@@ -58,11 +58,10 @@
     NSUInteger numberOfDaysInMonth = range.length;
     for (int i = 1; i <= numberOfDaysInMonth; i++) {
         TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:dayButtonSize withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textColor];
-        [dayButton setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+        [self setAttributedString:[NSString stringWithFormat:@"%i", i] forTaskDateButton:dayButton];
         dayButton.tag = i;
         dayButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         dayButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-        [dayButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
         dayButton.type = TaskButtonType_Day;
         [dayButton addTarget:self action:@selector(daySelect:) forControlEvents:UIControlEventTouchUpInside];
         if (currentDateComponents.day != i && i < currentDateComponents.day) {
@@ -83,8 +82,7 @@
         NSString *nameMonth = self.calendar.shortMonthSymbols[i];
         nameMonth = [nameMonth stringByReplacingCharactersInRange:NSMakeRange(0, 1)
                                                        withString:[[nameMonth substringToIndex:1] capitalizedString]];
-        [monthView.monthButton setTitle:[NSString stringWithFormat:@"%@", nameMonth] forState:UIControlStateNormal];
-        [monthView.monthButton.titleLabel setFont:font];
+        [self setAttributedString:[NSString stringWithFormat:@"%@", nameMonth] forTaskDateButton:monthView.monthButton];
         monthView.monthButton.type = TaskButtonType_Month;
         monthView.monthButton.tag = i + 1;
         monthView.tag = i + 1;
@@ -108,8 +106,7 @@
     }
     for (int i = [currentDateComponents year]; i < [currentDateComponents year] + 10; i++) {
         TaskDateButton *yearButton = [[TaskDateButton alloc] initWithFrame:yearButtonSize withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textYearColor];;
-        [yearButton setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
-        [yearButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
+        [self setAttributedString:[NSString stringWithFormat:@"%i", i] forTaskDateButton:yearButton];
         yearButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         yearButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         yearButton.tag = i;
@@ -174,9 +171,15 @@
     view = [[UILabel alloc] initWithFrame:CGRectMake(0, -300, 300, 300)];
     [self addSubview:view];
     NSDate *date = [[TaskDateQuickSnapManager instance] findFirstWeekendWithCalendar:self.calendar fromDate:self.currentDate];
-    [self.fastDaysCollectionView registerNib:[UINib nibWithNibName:@"TaskCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
+    [self.quickDaysCollectionView registerNib:[UINib nibWithNibName:@"TaskCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
 }
 
+- (void)setAttributedString:(NSString *)string forTaskDateButton:(TaskDateButton *)button {
+    NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] initWithString:string];
+    [commentString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleNone) range:NSMakeRange(0, [commentString length])];
+    [commentString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]range:NSMakeRange(0, [commentString length])];
+    [button setAttributedTitle:commentString forState:UIControlStateNormal];
+}
 
 # pragma mark TaskButtonAction
 
@@ -461,9 +464,9 @@
     CGContextStrokePath(context);
 
 
-    boundY = self.bounds.size.height - self.fastDaysCollectionView.bounds.size.height;
+    boundY = self.bounds.size.height - self.quickDaysCollectionView.bounds.size.height;
     CGContextMoveToPoint(context, 5, boundY);
-    CGContextAddLineToPoint(context, self.fastDaysCollectionView.bounds.size.width - 5, boundY);
+    CGContextAddLineToPoint(context, self.quickDaysCollectionView.bounds.size.width - 5, boundY);
     CGContextStrokePath(context);
 
     CGColorSpaceRelease(colorspace);
@@ -520,6 +523,14 @@
 
 #pragma mark UICollectionViewDelegate && UICollectionViewDataSours
 
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [UIView setAnimationsEnabled:NO];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    [UIView setAnimationsEnabled:YES];
+}
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -532,7 +543,7 @@
 
     TaskCollectionViewCell *cell = (TaskCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     TaskDateComponentsContext *dateComponentsContext = _quickDaysArray[indexPath.row];
-    [cell.quickDateButton setTitle:dateComponentsContext.nameValue forState:UIControlStateNormal];
+    [self setAttributedString:dateComponentsContext.nameValue forTaskDateButton:cell.quickDateButton];
     cell.quickDateButton.selectColor = _selectQuickDaysColor;
     cell.quickDateButton.textColor = _textColor;
     cell.quickDateButton.type = TaskButtonType_FastDay;

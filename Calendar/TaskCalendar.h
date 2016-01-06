@@ -19,7 +19,7 @@
 @property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *dayScrollView;
 @property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *monthScrollView;
 @property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *yearScrollView;
-@property(weak, nonatomic) IBOutlet TaskCalendarCollectionView *fastDaysCollectionView;
+@property(weak, nonatomic) IBOutlet TaskCalendarCollectionView *quickDaysCollectionView;
 
 @property(nonatomic, readonly, strong) NSMutableArray *quickDaysArray;
 @property(nonatomic, strong) UIColor *selectColor;

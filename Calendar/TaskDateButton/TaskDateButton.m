@@ -31,8 +31,8 @@
         _type = type;
         self.textColor = textColor;
         self.selectColor = color;
-        [self setTitleColor:textColor forState:UIControlStateNormal];
         [self addTarget:self action:@selector(selectButton:) forControlEvents:UIControlEventTouchUpInside];
+
     }
     return self;
 }
@@ -52,16 +52,19 @@
     if (_type == TaskButtonType_Day) {
         self.layer.cornerRadius = self.frame.size.width / 2;
         self.backgroundColor = self.selectColor;
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self setAttributedTitleColor:[UIColor whiteColor]];
     }
     if (_type == TaskButtonType_Month) {
-        [self setTitleColor:self.selectColor forState:UIControlStateNormal];
+
+        [self setAttributedTitleColor:self.selectColor];
     }
     if (_type == TaskButtonType_Year) {
-        [self setTitleColor:self.selectColor forState:UIControlStateNormal];
+
+        [self setAttributedTitleColor:self.selectColor];
     }
     if (_type == TaskButtonType_FastDay) {
-        [self setTitleColor:self.selectColor forState:UIControlStateNormal];
+
+        [self setAttributedTitleColor:self.selectColor];
     }
 }
 
@@ -75,6 +78,16 @@
 
 }
 
+- (void)setAttributedTitleColor:(UIColor *)color {
+    if (color) {
+        NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithAttributedString:self.currentAttributedTitle];
+        [attributedString addAttribute:NSForegroundColorAttributeName value:color range:NSMakeRange(0, [attributedString.string length])];
+        [self setAttributedTitle:attributedString forState:UIControlStateNormal];
+    } else {
+        NSLog(@"Not set color");
+    }
+}
+
 - (void)setSelectColor:(UIColor *)selectColor {
     _selectColor = selectColor;
     if (self.select) {
@@ -86,9 +99,9 @@
     if (_type == TaskButtonType_Day) {
         self.layer.cornerRadius = self.frame.size.width;
         self.backgroundColor = [UIColor clearColor];
-        [self setTitleColor:self.textColor forState:UIControlStateNormal];
+        [self setTextColor:self.textColor];
     } else {
-        [self setTitleColor:self.textColor forState:UIControlStateNormal];
+        [self setTextColor:self.textColor];
     }
 }
 
@@ -97,7 +110,7 @@
     if (self.select) {
         [self setSelectButton];
     } else {
-        [self setTitleColor:self.textColor forState:UIControlStateNormal];
+        [self setAttributedTitleColor:self.textColor];
     }
 
 }

@@ -59,8 +59,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="dayScrollView" destination="nfg-tC-NJ1" id="Zxt-ew-hMW"/>
-                <outlet property="fastDaysCollectionView" destination="jfm-wc-V3N" id="WcP-dJ-j6I"/>
                 <outlet property="monthScrollView" destination="CNl-bD-AiH" id="77Z-42-495"/>
+                <outlet property="quickDaysCollectionView" destination="jfm-wc-V3N" id="WcP-dJ-j6I"/>
                 <outlet property="yearScrollView" destination="t81-lu-pRh" id="K2v-F8-ga7"/>
             </connections>
             <point key="canvasLocation" x="-153" y="171"/>
