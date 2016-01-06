@@ -8,8 +8,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskDateButton/TaskDateButton.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/AppDelegate.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/main.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCollectionViewCell/TaskCollectionViewCell.m" isTestSource="false" />

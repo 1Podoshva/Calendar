@@ -12,7 +12,7 @@
 
 
 @protocol TaskCalendarDelegate <NSObject>
-- (void)selectDate:(NSDate *)date;
+- (void)TaskCalendarSelectDate:(NSDate *)date;
 @end
 
 @interface TaskCalendar : UIView <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -21,7 +21,7 @@
 @property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *yearScrollView;
 @property(weak, nonatomic) IBOutlet TaskCalendarCollectionView *fastDaysCollectionView;
 
-
+@property(nonatomic, readonly, strong) NSMutableArray *quickDaysArray;
 @property(nonatomic, strong) UIColor *selectColor;
 @property(nonatomic, strong) UIColor *textColor;
 @property(nonatomic, strong) UIColor *textYearColor;

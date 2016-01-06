@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TaskDateButton.h"
+
 @interface TaskMonthView : UIView
-@property (weak, nonatomic) IBOutlet TaskDateButton *monthButton;
-@property (weak, nonatomic) IBOutlet UILabel *numberMonthLabel;
+@property(weak, nonatomic) IBOutlet TaskDateButton *monthButton;
+@property(weak, nonatomic) IBOutlet UILabel *numberMonthLabel;
 @end
