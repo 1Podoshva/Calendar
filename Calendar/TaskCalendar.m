@@ -529,6 +529,7 @@
 }
 
 - (TaskCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
     TaskCollectionViewCell *cell = (TaskCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     TaskDateComponentsContext *dateComponentsContext = _quickDaysArray[indexPath.row];
     [cell.quickDateButton setTitle:dateComponentsContext.nameValue forState:UIControlStateNormal];
@@ -539,12 +540,11 @@
     NSLog(@"Item %i", indexPath.row);
     cell.quickDateButton.quickDate = [self.calendar dateFromComponents:dateComponentsContext];
     [cell.quickDateButton addTarget:self action:@selector(quickDaySelect:) forControlEvents:UIControlEventTouchUpInside];
+    cell.quickDateButton.select = NO;
     if (selectQuickDayTag == indexPath.row) {
         cell.quickDateButton.select = YES;
-    } else {
-        cell.quickDateButton.select = NO;
+        selectQuickDay = cell.quickDateButton;
     }
-    [cell layoutIfNeeded];
     return cell;
 }
 
