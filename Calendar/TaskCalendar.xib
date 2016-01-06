@@ -23,7 +23,7 @@
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-wc-V3N" customClass="TaskCalendarCollectionView">
                     <rect key="frame" x="0.0" y="164" width="320" height="128"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tkt-aC-cSu">
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="3" id="tkt-aC-cSu">
                         <size key="itemSize" width="100" height="20"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -63,7 +63,7 @@
                 <outlet property="monthScrollView" destination="CNl-bD-AiH" id="77Z-42-495"/>
                 <outlet property="yearScrollView" destination="t81-lu-pRh" id="K2v-F8-ga7"/>
             </connections>
-            <point key="canvasLocation" x="411" y="411"/>
+            <point key="canvasLocation" x="-153" y="171"/>
         </view>
     </objects>
 </document>

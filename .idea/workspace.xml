@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4aa84375-0553-41e4-9b09-8f3e1ab8d08b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Calendar.iml" afterPath="$PROJECT_DIR$/.idea/Calendar.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar/TaskCalendar.h" afterPath="$PROJECT_DIR$/Calendar/TaskCalendar.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar/TaskCalendar.m" afterPath="$PROJECT_DIR$/Calendar/TaskCalendar.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar/TaskMonthView/TaskMonthView.h" afterPath="$PROJECT_DIR$/Calendar/TaskMonthView/TaskMonthView.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar/TaskMonthView/TaskMonthView.xib" afterPath="$PROJECT_DIR$/Calendar/TaskMonthView/TaskMonthView.xib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar/ViewController.m" afterPath="$PROJECT_DIR$/Calendar/ViewController.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar/TaskCalendar.xib" afterPath="$PROJECT_DIR$/Calendar/TaskCalendar.xib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Calendar/TaskCollectionViewCell/TaskCollectionViewCell.xib" afterPath="$PROJECT_DIR$/Calendar/TaskCollectionViewCell/TaskCollectionViewCell.xib" />
     </list>
     <ignored path="Calendar.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -22,20 +19,40 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_7d667b1d93e5a7ccb6405bba15408b11c840c02a" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphonesimulatoriPhone_6s_9.2_x86_64_1" />
   <component name="FavoritesManager">
     <favorites_list name="Calendar" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TaskCalendar.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TaskCalendar.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Calendar/TaskCalendar.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="238" column="22" selection-start-line="238" selection-start-column="22" selection-end-line="238" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.285">
+              <caret line="532" column="86" selection-start-line="532" selection-start-column="55" selection-end-line="532" selection-end-column="86" />
               <folding>
                 <element signature="e#133#157#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskDateButton.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Calendar/TaskDateButton/TaskDateButton.m">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskDateButton.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Calendar/TaskDateButton/TaskDateButton.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,10 +67,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskCollectionViewLayout.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TaskCollectionViewLayout.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Calendar/TaskCollectionViewLayout/TaskCollectionViewLayout.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1433333">
+            <state vertical-scroll-proportion="0.0">
               <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
               <folding />
             </state>
@@ -194,6 +211,28 @@
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Calendar" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Calendar" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Calendar" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaskDateButton" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -278,7 +317,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="18" y="23" width="1630" height="1053" extended-state="1" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.49701047" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24064171" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -288,9 +327,9 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32834226" sideWeight="0.49402094" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23990056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23990056" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38637942" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38595402" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35508022" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -306,7 +345,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="198" />
+      <option name="time" value="199" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -629,14 +668,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Calendar/TaskDateButton/TaskDateButton.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Calendar/TaskMonthView/TaskMonthView.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -649,24 +680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Calendar/TaskCalendar.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="238" column="22" selection-start-line="238" selection-start-column="22" selection-end-line="238" selection-end-column="22" />
-          <folding>
-            <element signature="e#133#157#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Calendar/TaskDateButton/TaskDateButton.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35832414">
-          <caret line="34" column="53" selection-start-line="34" selection-start-column="53" selection-end-line="34" selection-end-column="53" />
           <folding />
         </state>
       </provider>
@@ -689,9 +702,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Calendar/TaskCollectionViewLayout/TaskCollectionViewLayout.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1433333">
+        <state vertical-scroll-proportion="0.0">
           <caret line="55" column="46" selection-start-line="55" selection-start-column="46" selection-end-line="55" selection-end-column="46" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Calendar/TaskDateButton/TaskDateButton.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Calendar/TaskDateButton/TaskDateButton.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="46" column="25" selection-start-line="46" selection-start-column="25" selection-end-line="46" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Calendar/TaskCalendar.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.285">
+          <caret line="532" column="86" selection-start-line="532" selection-start-column="55" selection-end-line="532" selection-end-column="86" />
+          <folding>
+            <element signature="e#133#157#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

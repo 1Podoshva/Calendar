@@ -13,7 +13,7 @@
 #import "TaskMonthView.h"
 
 #define ADD_WIGHT_SIZE 20
-#define HEIGHT_CELL_SIZE 20
+#define HEIGHT_CELL_SIZE 30
 #define COUNT_DAYS 30
 
 @implementation TaskCalendar {
