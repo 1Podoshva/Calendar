@@ -14,9 +14,9 @@
 
 #define ADD_WIGHT_SIZE 20
 #define HEIGHT_CELL_SIZE 30
-#define COUNT_DAYS 30
+#define COUNT_DAYS 31
 
-@interface TaskCalendar() <UIScrollViewDelegate>
+@interface TaskCalendar () <UIScrollViewDelegate>
 @end
 
 @implementation TaskCalendar {
@@ -181,7 +181,7 @@
 - (void)setAttributedString:(NSString *)string forTaskDateButton:(TaskDateButton *)button {
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] initWithString:string];
     [commentString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleNone) range:NSMakeRange(0, [commentString length])];
-    [commentString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]range:NSMakeRange(0, [commentString length])];
+    [commentString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Light" size:15] range:NSMakeRange(0, [commentString length])];
     [button setAttributedTitle:commentString forState:UIControlStateNormal];
 }
 
@@ -490,11 +490,6 @@
         monthView.monthButton.textColor = textColor;
         [monthView.numberMonthLabel setTextColor:textColor];
     }
-    /*
-    for (TaskDateButton *quickDateButton in _quickDaysArray) {
-        quickDateButton.textColor = textColor;
-    }
-     */
 }
 
 - (void)setSelectColor:(UIColor *)selectColor {
@@ -529,7 +524,6 @@
 #pragma mark UICollectionViewDelegate && UICollectionViewDataSours
 
 
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
@@ -545,7 +539,7 @@
     [self setAttributedString:dateComponentsContext.nameValue forTaskDateButton:cell.quickDateButton];
     cell.quickDateButton.selectColor = _selectQuickDaysColor;
     cell.quickDateButton.textColor = _textColor;
-    cell.quickDateButton.type = TaskButtonType_FastDay;
+    cell.quickDateButton.type = TaskButtonType_QuickDay;
     cell.quickDateButton.tag = indexPath.row;
     NSLog(@"Item %i", indexPath.row);
     cell.quickDateButton.quickDate = [self.calendar dateFromComponents:dateComponentsContext];
@@ -565,11 +559,6 @@
     stringBoundingBox = [dateComponentsContext.nameValue sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
     return CGSizeMake(stringBoundingBox.width + ADD_WIGHT_SIZE, HEIGHT_CELL_SIZE);
 }
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    UIView
-}
-
 
 
 @end

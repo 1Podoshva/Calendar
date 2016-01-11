@@ -16,10 +16,10 @@
 @end
 
 @interface TaskCalendar : UIView <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-@property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *dayScrollView;
-@property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *monthScrollView;
-@property(weak, nonatomic) IBOutlet TaskDatePickerScrollView *yearScrollView;
-@property(weak, nonatomic) IBOutlet TaskCalendarCollectionView *quickDaysCollectionView;
+@property(weak, nonatomic, readonly) IBOutlet TaskDatePickerScrollView *dayScrollView;
+@property(weak, nonatomic, readonly) IBOutlet TaskDatePickerScrollView *monthScrollView;
+@property(weak, nonatomic, readonly) IBOutlet TaskDatePickerScrollView *yearScrollView;
+@property(weak, nonatomic, readonly) IBOutlet TaskCalendarCollectionView *quickDaysCollectionView;
 
 @property(nonatomic, readonly, strong) NSMutableArray *quickDaysArray;
 @property(nonatomic, strong) UIColor *selectColor;

@@ -29,8 +29,8 @@
 - (instancetype)initWithFrame:(CGRect)frame withType:(TaskButtonType)type withSelectColor:(UIColor *)color withTextColor:(UIColor *)textColor {
     if (self = [super initWithFrame:frame]) {
         _type = type;
-        self.textColor = textColor;
         self.selectColor = color;
+        self.textColor = textColor;
         [self addTarget:self action:@selector(selectButton:) forControlEvents:UIControlEventTouchUpInside];
 
     }
@@ -62,7 +62,7 @@
 
         [self setAttributedTitleColor:self.selectColor];
     }
-    if (_type == TaskButtonType_FastDay) {
+    if (_type == TaskButtonType_QuickDay) {
 
         [self setAttributedTitleColor:self.selectColor];
     }

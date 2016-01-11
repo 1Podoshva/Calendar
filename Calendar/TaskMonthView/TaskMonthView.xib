@@ -13,7 +13,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="eoO-vi-3NU" customClass="TaskDateButton">
-                    <rect key="frame" x="0.0" y="10" width="120" height="64"/>
+                    <rect key="frame" x="3" y="10" width="117" height="64"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                     <inset key="contentEdgeInsets" minX="33" minY="-22" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Февр.">
@@ -38,7 +38,7 @@
                 <constraint firstItem="wxp-5w-prJ" firstAttribute="leading" secondItem="ME4-tk-eNY" secondAttribute="leading" id="HyG-p9-GJa"/>
                 <constraint firstItem="wxp-5w-prJ" firstAttribute="top" secondItem="ME4-tk-eNY" secondAttribute="topMargin" constant="2" id="W9G-nq-IqU"/>
                 <constraint firstItem="wxp-5w-prJ" firstAttribute="bottom" secondItem="eoO-vi-3NU" secondAttribute="bottom" id="hTL-tQ-ib2"/>
-                <constraint firstItem="eoO-vi-3NU" firstAttribute="leading" secondItem="wxp-5w-prJ" secondAttribute="trailing" constant="-33" id="v4p-lg-FRX"/>
+                <constraint firstItem="eoO-vi-3NU" firstAttribute="leading" secondItem="wxp-5w-prJ" secondAttribute="trailing" constant="-30" id="v4p-lg-FRX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

@@ -12,7 +12,7 @@ typedef enum {
     TaskButtonType_Day,
     TaskButtonType_Month,
     TaskButtonType_Year,
-    TaskButtonType_FastDay
+    TaskButtonType_QuickDay
 } TaskButtonType;
 
 @interface TaskDateButton : UIButton

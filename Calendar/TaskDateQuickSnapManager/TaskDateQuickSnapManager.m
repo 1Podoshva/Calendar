@@ -101,7 +101,6 @@
         [dateFormatter setDateFormat:@"EEEE"];
         return [dateFormatter stringFromDate:date];
     }
-
     NSLog(@"PARAMS IS NULL");
     return nil;
 }
