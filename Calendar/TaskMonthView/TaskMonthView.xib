@@ -13,9 +13,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="eoO-vi-3NU" customClass="TaskDateButton">
-                    <rect key="frame" x="3" y="10" width="117" height="64"/>
+                    <rect key="frame" x="1" y="0.0" width="119" height="74"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
-                    <inset key="contentEdgeInsets" minX="33" minY="-22" maxX="0.0" maxY="0.0"/>
+                    <inset key="contentEdgeInsets" minX="36" minY="-17" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="Февр.">
                         <color key="titleColor" red="0.05859375" green="0.42758620689999999" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -33,12 +33,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="eoO-vi-3NU" secondAttribute="trailing" id="6EW-cb-HsD"/>
-                <constraint firstItem="eoO-vi-3NU" firstAttribute="top" secondItem="ME4-tk-eNY" secondAttribute="top" constant="10" id="99C-qj-7bh"/>
+                <constraint firstItem="eoO-vi-3NU" firstAttribute="top" secondItem="ME4-tk-eNY" secondAttribute="top" id="99C-qj-7bh"/>
                 <constraint firstAttribute="bottom" secondItem="eoO-vi-3NU" secondAttribute="bottom" id="A59-Dm-M7M"/>
                 <constraint firstItem="wxp-5w-prJ" firstAttribute="leading" secondItem="ME4-tk-eNY" secondAttribute="leading" id="HyG-p9-GJa"/>
                 <constraint firstItem="wxp-5w-prJ" firstAttribute="top" secondItem="ME4-tk-eNY" secondAttribute="topMargin" constant="2" id="W9G-nq-IqU"/>
                 <constraint firstItem="wxp-5w-prJ" firstAttribute="bottom" secondItem="eoO-vi-3NU" secondAttribute="bottom" id="hTL-tQ-ib2"/>
-                <constraint firstItem="eoO-vi-3NU" firstAttribute="leading" secondItem="wxp-5w-prJ" secondAttribute="trailing" constant="-30" id="v4p-lg-FRX"/>
+                <constraint firstItem="eoO-vi-3NU" firstAttribute="leading" secondItem="wxp-5w-prJ" secondAttribute="trailing" constant="-32" id="v4p-lg-FRX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

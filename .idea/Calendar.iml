@@ -8,31 +8,33 @@
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskDateQuickSnapManager/TaskDateQuickSnapManager.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/main.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/AppDelegate.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/Assets.xcassets" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCollectionViewCell/TaskCollectionViewCell.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCollectionViewCell/TaskCollectionViewCell.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCollectionViewCell/TaskCollectionViewCell.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/AppDelegate.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendarColorTheme/TaskCalendarColorTheme.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendarColorTheme/TaskCalendarColorTheme.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskDatePickerScrollView/TaskDatePickerScrollView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskDatePickerScrollView/TaskDatePickerScrollView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/Calendar.xcdatamodeld/Calendar.xcdatamodel" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/ViewController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendarCollectionView/TaskCalendarCollectionView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendarCollectionView/TaskCalendarCollectionView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/Base.lproj/LaunchScreen.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/Base.lproj/Main.storyboard" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/ViewController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/Calendar.xcdatamodeld/Calendar.xcdatamodel" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskMonthView/TaskMonthView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskMonthView/TaskMonthView.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskMonthView/TaskMonthView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/AppDelegate.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskDateButton/TaskDateButton.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskDateButton/TaskQuickDateButton.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskDateButton/TaskQuickDateButton.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskDateButton/TaskDateButton.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskCalendar.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskMonthView/TaskMonthView.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskMonthView/TaskMonthView.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Calendar/TaskMonthView/TaskMonthView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Calendar/AppDelegate.m" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

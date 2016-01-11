@@ -12,6 +12,7 @@
 		B45C9BE71C2400F70001A43B /* TaskCalendarCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = B45C9BE61C2400F70001A43B /* TaskCalendarCollectionView.m */; };
 		B45C9BF01C2409A70001A43B /* TaskCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B45C9BEE1C2409A70001A43B /* TaskCollectionViewCell.m */; };
 		B45C9BF11C2409A70001A43B /* TaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B45C9BEF1C2409A70001A43B /* TaskCollectionViewCell.xib */; };
+		B46F77D41C43F17A0061949F /* TaskCalendarColorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = B46F77D31C43F17A0061949F /* TaskCalendarColorTheme.m */; };
 		B4DAAE671C219549005F8DA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DAAE661C219549005F8DA1 /* main.m */; };
 		B4DAAE6A1C219549005F8DA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DAAE691C219549005F8DA1 /* AppDelegate.m */; };
 		B4DAAE6D1C219549005F8DA1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4DAAE6C1C219549005F8DA1 /* ViewController.m */; };
@@ -38,6 +39,8 @@
 		B45C9BED1C2409A70001A43B /* TaskCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskCollectionViewCell.h; path = TaskCollectionViewCell/TaskCollectionViewCell.h; sourceTree = "<group>"; };
 		B45C9BEE1C2409A70001A43B /* TaskCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskCollectionViewCell.m; path = TaskCollectionViewCell/TaskCollectionViewCell.m; sourceTree = "<group>"; };
 		B45C9BEF1C2409A70001A43B /* TaskCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TaskCollectionViewCell.xib; path = TaskCollectionViewCell/TaskCollectionViewCell.xib; sourceTree = "<group>"; };
+		B46F77D21C43F17A0061949F /* TaskCalendarColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskCalendarColorTheme.h; path = TaskCalendarColorTheme/TaskCalendarColorTheme.h; sourceTree = "<group>"; };
+		B46F77D31C43F17A0061949F /* TaskCalendarColorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskCalendarColorTheme.m; path = TaskCalendarColorTheme/TaskCalendarColorTheme.m; sourceTree = "<group>"; };
 		B4DAAE621C219549005F8DA1 /* Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DAAE661C219549005F8DA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4DAAE681C219549005F8DA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +116,15 @@
 			name = TaskCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		B46F77D11C43F1370061949F /* TaskCalendarColorTheme */ = {
+			isa = PBXGroup;
+			children = (
+				B46F77D21C43F17A0061949F /* TaskCalendarColorTheme.h */,
+				B46F77D31C43F17A0061949F /* TaskCalendarColorTheme.m */,
+			);
+			name = TaskCalendarColorTheme;
+			sourceTree = "<group>";
+		};
 		B4DAAE591C219549005F8DA1 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +170,7 @@
 		B4DAAE7F1C21954F005F8DA1 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				B46F77D11C43F1370061949F /* TaskCalendarColorTheme */,
 				B4F985771C3AB11F0049E981 /* TaskMonthView */,
 				B411B5971C32C79900B675B1 /* TaskDatePickerScrollView */,
 				B45C9BEC1C2409850001A43B /* TaskCollectionViewCell */,
@@ -270,6 +283,7 @@
 				B411B59A1C32C7F300B675B1 /* TaskDatePickerScrollView.m in Sources */,
 				B45C9BE71C2400F70001A43B /* TaskCalendarCollectionView.m in Sources */,
 				B45C9BF01C2409A70001A43B /* TaskCollectionViewCell.m in Sources */,
+				B46F77D41C43F17A0061949F /* TaskCalendarColorTheme.m in Sources */,
 				B4DAAE6D1C219549005F8DA1 /* ViewController.m in Sources */,
 				B45146481C22BD7D00EF0B10 /* TaskDateButton.m in Sources */,
 				B4DAAE6A1C219549005F8DA1 /* AppDelegate.m in Sources */,

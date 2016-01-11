@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TaskCalendarCollectionView.h"
 #import "TaskDatePickerScrollView.h"
+#import "TaskCalendarColorTheme.h"
 
 
 @protocol TaskCalendarDelegate <NSObject>
@@ -22,13 +23,10 @@
 @property(weak, nonatomic, readonly) IBOutlet TaskCalendarCollectionView *quickDaysCollectionView;
 
 @property(nonatomic, readonly, strong) NSMutableArray *quickDaysArray;
-@property(nonatomic, strong) UIColor *selectColor;
-@property(nonatomic, strong) UIColor *textColor;
-@property(nonatomic, strong) UIColor *textYearColor;
-@property(nonatomic, strong) UIColor *selectQuickDaysColor;
 @property(nonatomic, strong) NSCalendar *calendar;
 @property(nonatomic, readonly) NSDate *currentDate;
 @property(nonatomic, readonly) NSDateComponents *selectDateComponents;
 @property(nonatomic, weak) id <TaskCalendarDelegate> delegate;
+@property(nonatomic, strong) TaskCalendarColorTheme *taskCalendarColorTheme;
 
 @end

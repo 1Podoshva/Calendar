@@ -16,7 +16,10 @@
 #define HEIGHT_CELL_SIZE 30
 #define COUNT_DAYS 31
 
+
 @interface TaskCalendar () <UIScrollViewDelegate>
+
+
 @end
 
 @implementation TaskCalendar {
@@ -37,6 +40,7 @@
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
     if (self = [super initWithCoder:coder]) {
+        self.taskCalendarColorTheme = [[TaskCalendarColorTheme alloc] init];
         [self createCalendar];
 
     }
@@ -60,8 +64,9 @@
     NSRange range = [self.calendar rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self.currentDate];
     NSUInteger numberOfDaysInMonth = range.length;
     for (int i = 1; i <= numberOfDaysInMonth; i++) {
-        TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:dayButtonSize withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textColor];
-        [self setAttributedString:[NSString stringWithFormat:@"%i", i] forTaskDateButton:dayButton];
+        UIFont *font = self.taskCalendarColorTheme.fontForDay;
+        TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:dayButtonSize withType:TaskButtonType_Day withSelectColor:self.taskCalendarColorTheme.selectColor withTextColor:self.taskCalendarColorTheme.textColor];
+        [self setAttributedString:[NSString stringWithFormat:@"%i", i] withFont:font forTaskDateButton:dayButton];
         dayButton.tag = i;
         dayButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         dayButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -69,7 +74,7 @@
         [dayButton addTarget:self action:@selector(daySelect:) forControlEvents:UIControlEventTouchUpInside];
         if (currentDateComponents.day != i && i < currentDateComponents.day) {
             dayButton.enabled = NO;
-            dayButton.alpha = 0.3;
+            dayButton.alpha = 0.5;
         } else if (currentDateComponents.day == i) {
             selectDay = dayButton;
             selectDay.select = YES;
@@ -78,21 +83,21 @@
     }
 
     for (int i = 0; i < self.calendar.shortMonthSymbols.count; i++) {
-        UIFont *font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15];
+        UIFont *font = self.taskCalendarColorTheme.fontForMonth;
         TaskMonthView *monthView = [[[NSBundle mainBundle] loadNibNamed:@"TaskMonthView" owner:self options:nil] lastObject];
         monthView.backgroundColor = [UIColor clearColor];
         monthView.frame = monthButtonSize;
         NSString *nameMonth = self.calendar.shortMonthSymbols[i];
         nameMonth = [nameMonth stringByReplacingCharactersInRange:NSMakeRange(0, 1)
                                                        withString:[[nameMonth substringToIndex:1] capitalizedString]];
-        [self setAttributedString:[NSString stringWithFormat:@"%@", nameMonth] forTaskDateButton:monthView.monthButton];
+        [self setAttributedString:[NSString stringWithFormat:@"%@", nameMonth] withFont:font forTaskDateButton:monthView.monthButton];
         monthView.monthButton.type = TaskButtonType_Month;
         monthView.monthButton.tag = i + 1;
         monthView.tag = i + 1;
-        monthView.monthButton.textColor = self.textColor;
-        monthView.monthButton.selectColor = self.selectColor;
+        monthView.monthButton.textColor = self.taskCalendarColorTheme.textColor;
+        monthView.monthButton.selectColor = self.taskCalendarColorTheme.selectColor;
         [monthView.monthButton addTarget:self action:@selector(monthSelect:) forControlEvents:UIControlEventTouchUpInside];
-        [monthView.numberMonthLabel setTextColor:self.textColor];
+        [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.textColor];
         [monthView.numberMonthLabel setFont:font];
         if (i < 9) {
             [monthView.numberMonthLabel setText:[NSString stringWithFormat:@"0%i", i + 1]];
@@ -102,18 +107,19 @@
         if (currentDateComponents.month - 1 == i) {
             selectMonth = monthView.monthButton;
             selectMonth.select = YES;
-            [monthView.numberMonthLabel setTextColor:self.selectColor];
+            [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.selectColor];
         }
         [self.monthScrollView addSubview:monthView];
 
     }
     for (int i = [currentDateComponents year]; i < [currentDateComponents year] + 10; i++) {
-        TaskDateButton *yearButton = [[TaskDateButton alloc] initWithFrame:yearButtonSize withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textYearColor];;
-        [self setAttributedString:[NSString stringWithFormat:@"%i", i] forTaskDateButton:yearButton];
+        UIFont *font = self.taskCalendarColorTheme.fontForYear;
+        TaskDateButton *yearButton = [[TaskDateButton alloc] initWithFrame:yearButtonSize withType:TaskButtonType_Day withSelectColor:self.taskCalendarColorTheme.selectColor withTextColor:self.taskCalendarColorTheme.textYearColor];;
+        yearButton.type = TaskButtonType_Year;
+        [self setAttributedString:[NSString stringWithFormat:@"%i", i] withFont:font forTaskDateButton:yearButton];
         yearButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         yearButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         yearButton.tag = i;
-        yearButton.type = TaskButtonType_Year;
         [yearButton addTarget:self action:@selector(yearSelect:) forControlEvents:UIControlEventTouchUpInside];
         if (currentDateComponents.year == i) {
             selectYear = yearButton;
@@ -167,7 +173,7 @@
     monthButtonSize = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width / 4, self.monthScrollView.frame.size.height);
     dayButtonSize = CGRectMake(0, 0, 35, 35);
     yearButtonSize = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width / 5, 30);
-    CGFloat daySpacing = ([UIScreen mainScreen].bounds.size.width / COUNT_DAYS) / 2;
+    CGFloat daySpacing = (CGFloat) (([UIScreen mainScreen].bounds.size.width / COUNT_DAYS) / 2 - 0.2);
     [self.dayScrollView setSpacing:daySpacing];
     [self createButtons];
     [self updateMonthScrollViewPosition];
@@ -178,10 +184,16 @@
     [self updateDayScrollViewPosition];
 }
 
-- (void)setAttributedString:(NSString *)string forTaskDateButton:(TaskDateButton *)button {
+- (void)setAttributedString:(NSString *)string withFont:(UIFont *)font forTaskDateButton:(TaskDateButton *)button {
     NSMutableAttributedString *commentString = [[NSMutableAttributedString alloc] initWithString:string];
     [commentString addAttribute:NSUnderlineStyleAttributeName value:@(NSUnderlineStyleNone) range:NSMakeRange(0, [commentString length])];
-    [commentString addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue-Light" size:15] range:NSMakeRange(0, [commentString length])];
+    [commentString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, [commentString length])];
+    if (button.type == TaskButtonType_Year) {
+        [commentString addAttribute:NSForegroundColorAttributeName value:self.taskCalendarColorTheme.textYearColor range:NSMakeRange(0, [commentString length])];
+    } else {
+        [commentString addAttribute:NSForegroundColorAttributeName value:self.taskCalendarColorTheme.textColor range:NSMakeRange(0, [commentString length])];
+    }
+
     [button setAttributedTitle:commentString forState:UIControlStateNormal];
 }
 
@@ -209,18 +221,18 @@
     TaskMonthView *monthView = (TaskMonthView *) monthSelect.superview;
     TaskMonthView *oldMonthView = (TaskMonthView *) [selectMonth superview];
     if (selectQuickDay) {
-        [oldMonthView.numberMonthLabel setTextColor:self.textColor];
+        [oldMonthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.textColor];
         selectQuickDay.select = NO;
         selectQuickDay = nil;
     }
     if (selectMonth.tag == monthSelect.tag) {
         selectMonth.select = YES;
-        [oldMonthView.numberMonthLabel setTextColor:self.textColor];
-        [monthView.numberMonthLabel setTextColor:self.selectColor];
+        [oldMonthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.textColor];
+        [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.selectColor];
     } else {
         selectMonth.select = NO;
-        [oldMonthView.numberMonthLabel setTextColor:self.textColor];
-        [monthView.numberMonthLabel setTextColor:self.selectColor];
+        [oldMonthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.textColor];
+        [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.selectColor];
         selectMonth = monthSelect;
         [_selectDateComponents setMonth:monthSelect.tag];
     }
@@ -306,12 +318,12 @@
                     }
                 }
             } else {
-                TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:dayButtonSize withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textColor];
-                [self setAttributedString:[NSString stringWithFormat:@"%i", i + 1] forTaskDateButton:dayButton];
+                TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:dayButtonSize withType:TaskButtonType_Day withSelectColor:self.taskCalendarColorTheme.selectColor withTextColor:self.taskCalendarColorTheme.textColor];
+                [self setAttributedString:[NSString stringWithFormat:@"%i", i + 1] withFont:self.taskCalendarColorTheme.fontForDay forTaskDateButton:dayButton];
                 dayButton.tag = i + 1;
                 dayButton.type = TaskButtonType_Day;
-                dayButton.selectColor = self.selectColor;
-                dayButton.textColor = self.textColor;
+                dayButton.selectColor = self.taskCalendarColorTheme.selectColor;
+                dayButton.textColor = self.taskCalendarColorTheme.textColor;
                 [dayButton addTarget:self action:@selector(daySelect:) forControlEvents:UIControlEventTouchUpInside];
                 dayButton.enabled = YES;
                 dayButton.alpha = 1;
@@ -346,7 +358,7 @@
                 [taskButton setTitle:[NSString stringWithFormat:@"%i", i + 1] forState:UIControlStateNormal];
                 if (currentDateComponents.day != i + 1 && i + 1 < currentDateComponents.day) {
                     taskButton.enabled = NO;
-                    taskButton.alpha = 0.3;
+                    taskButton.alpha = 0.5;
                 } else if (selectTag == i + 1) {
                     if (!selectQuickDay) {
                         [taskButton sendActionsForControlEvents:UIControlEventTouchUpInside];
@@ -375,13 +387,13 @@
         }
     }
     for (TaskMonthView *monthView in self.monthScrollView.subviews) {
-        [monthView.numberMonthLabel setTextColor:self.textColor];
+        [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.textColor];
         if (monthView.monthButton.tag == _selectDateComponents.month) {
             selectMonth.select = NO;
             selectMonth = nil;
             selectMonth = monthView.monthButton;
             selectMonth.select = YES;
-            [monthView.numberMonthLabel setTextColor:self.selectColor];
+            [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.selectColor];
         }
     }
     /*
@@ -451,9 +463,9 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetLineWidth(context, 0.5);
+    CGContextSetLineWidth(context, 1.0);
     CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
-    CGFloat components[] = {81.0 / 255.0, 80.0 / 255.0, 87.0 / 255.0, 1.0};
+    CGFloat components[] = {76.0 / 255.0, 74.0 / 255.0, 81.0 / 255.0, 0.5};
     CGColorRef color = CGColorCreate(colorspace, components);
     CGContextSetStrokeColorWithColor(context, color);
 
@@ -479,7 +491,7 @@
 }
 
 # pragma mark Setters
-
+/*
 - (void)setTextColor:(UIColor *)textColor {
     _textColor = textColor;
     for (TaskDateButton *dayButton in self.dayScrollView.subviews) {
@@ -519,7 +531,7 @@
 - (void)setSelectQuickDaysColor:(UIColor *)selectQuickDaysColor {
     _selectQuickDaysColor = selectQuickDaysColor;
 }
-
+*/
 
 #pragma mark UICollectionViewDelegate && UICollectionViewDataSours
 
@@ -535,10 +547,11 @@
 - (TaskCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     TaskCollectionViewCell *cell = (TaskCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+
     TaskDateComponentsContext *dateComponentsContext = _quickDaysArray[indexPath.row];
-    [self setAttributedString:dateComponentsContext.nameValue forTaskDateButton:cell.quickDateButton];
-    cell.quickDateButton.selectColor = _selectQuickDaysColor;
-    cell.quickDateButton.textColor = _textColor;
+    [self setAttributedString:dateComponentsContext.nameValue withFont:self.taskCalendarColorTheme.fontForQuickDay forTaskDateButton:cell.quickDateButton];
+    cell.quickDateButton.selectColor = self.taskCalendarColorTheme.selectQuickDaysColor;
+    cell.quickDateButton.textColor = self.taskCalendarColorTheme.textColor;
     cell.quickDateButton.type = TaskButtonType_QuickDay;
     cell.quickDateButton.tag = indexPath.row;
     NSLog(@"Item %i", indexPath.row);
@@ -556,9 +569,42 @@
     TaskDateComponentsContext *dateComponentsContext;
     CGSize stringBoundingBox;
     dateComponentsContext = _quickDaysArray[(NSUInteger) indexPath.row];
-    stringBoundingBox = [dateComponentsContext.nameValue sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
+    stringBoundingBox = [dateComponentsContext.nameValue sizeWithFont:self.taskCalendarColorTheme.fontForQuickDay];
     return CGSizeMake(stringBoundingBox.width + ADD_WIGHT_SIZE, HEIGHT_CELL_SIZE);
 }
 
+#pragma mark ThemeColors
+
+/// перепроверить
+- (void)setTaskCalendarColorTheme:(TaskCalendarColorTheme *)taskCalendarColorTheme {
+    _taskCalendarColorTheme = taskCalendarColorTheme;
+    self.backgroundColor = self.taskCalendarColorTheme.backgroundColor;
+    for (TaskDateButton *dayButton in self.dayScrollView.subviews) {
+        dayButton.selectColor = self.taskCalendarColorTheme.selectColor;
+        [self setAttributedString:dayButton.currentAttributedTitle.string withFont:taskCalendarColorTheme.fontForDay forTaskDateButton:dayButton];
+        dayButton.textColor = self.taskCalendarColorTheme.textColor;
+    }
+
+    for (TaskMonthView *monthView in self.monthScrollView.subviews) {
+        monthView.monthButton.selectColor = self.taskCalendarColorTheme.selectColor;
+        monthView.monthButton.textColor = self.taskCalendarColorTheme.textColor;
+        [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.textColor];
+        [self setAttributedString:monthView.monthButton.currentAttributedTitle.string withFont:taskCalendarColorTheme.fontForMonth forTaskDateButton:monthView.monthButton];
+        [monthView.numberMonthLabel setFont:taskCalendarColorTheme.fontForMonth];
+        [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.textColor];
+        if (selectMonth.tag == monthView.monthButton.tag) {
+            [monthView.numberMonthLabel setTextColor:self.taskCalendarColorTheme.selectColor];
+            monthView.monthButton.selectColor = self.taskCalendarColorTheme.selectColor;
+        }
+    }
+
+
+    for (TaskDateButton *yearButton in self.yearScrollView.subviews) {
+        [self setAttributedString:yearButton.currentAttributedTitle.string withFont:taskCalendarColorTheme.fontForYear forTaskDateButton:yearButton];
+        yearButton.selectColor = self.taskCalendarColorTheme.selectColor;
+        yearButton.textColor = self.taskCalendarColorTheme.textYearColor;
+    }
+
+}
 
 @end
