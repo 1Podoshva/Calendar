@@ -16,6 +16,9 @@
 #define HEIGHT_CELL_SIZE 30
 #define COUNT_DAYS 30
 
+@interface TaskCalendar() <UIScrollViewDelegate>
+@end
+
 @implementation TaskCalendar {
 
     NSDateComponents *currentDateComponents;
@@ -170,8 +173,9 @@
     [self updateMonthScrollViewPosition];
     view = [[UILabel alloc] initWithFrame:CGRectMake(0, -300, 300, 300)];
     [self addSubview:view];
-    NSDate *date = [[TaskDateQuickSnapManager instance] findFirstWeekendWithCalendar:self.calendar fromDate:self.currentDate];
     [self.quickDaysCollectionView registerNib:[UINib nibWithNibName:@"TaskCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"Cell"];
+    [self updateMonthScrollViewPosition];
+    [self updateDayScrollViewPosition];
 }
 
 - (void)setAttributedString:(NSString *)string forTaskDateButton:(TaskDateButton *)button {
@@ -303,10 +307,11 @@
                 }
             } else {
                 TaskDateButton *dayButton = [[TaskDateButton alloc] initWithFrame:dayButtonSize withType:TaskButtonType_Day withSelectColor:self.selectColor withTextColor:self.textColor];
-                [dayButton setTitle:[NSString stringWithFormat:@"%i", i + 1] forState:UIControlStateNormal];
+                [self setAttributedString:[NSString stringWithFormat:@"%i", i + 1] forTaskDateButton:dayButton];
                 dayButton.tag = i + 1;
-                [dayButton.titleLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
                 dayButton.type = TaskButtonType_Day;
+                dayButton.selectColor = self.selectColor;
+                dayButton.textColor = self.textColor;
                 [dayButton addTarget:self action:@selector(daySelect:) forControlEvents:UIControlEventTouchUpInside];
                 dayButton.enabled = YES;
                 dayButton.alpha = 1;
@@ -523,13 +528,7 @@
 
 #pragma mark UICollectionViewDelegate && UICollectionViewDataSours
 
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [UIView setAnimationsEnabled:NO];
-}
 
-- (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    [UIView setAnimationsEnabled:YES];
-}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
@@ -566,5 +565,11 @@
     stringBoundingBox = [dateComponentsContext.nameValue sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Light" size:15]];
     return CGSizeMake(stringBoundingBox.width + ADD_WIGHT_SIZE, HEIGHT_CELL_SIZE);
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    UIView
+}
+
+
 
 @end
